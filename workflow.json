@@ -1,0 +1,274 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -480,
+        -80
+      ],
+      "id": "628cf6f7-38cb-4e4b-bd03-90431434ae2e",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a029845e-a799-4e5e-a156-9b431d7d9820",
+              "name": "name",
+              "value": "alex manoev",
+              "type": "string"
+            },
+            {
+              "id": "d444766b-b50f-4e3a-92c6-cfc525270042",
+              "name": "email",
+              "value": "nemilo",
+              "type": "string"
+            },
+            {
+              "id": "a76d5347-473b-4fe8-9c87-2d208dcdea2a",
+              "name": "company",
+              "value": "northstar studio",
+              "type": "string"
+            },
+            {
+              "id": "ed3b61ea-11fa-45b5-8bde-446096b5f7ce",
+              "name": "service",
+              "value": "AI automation",
+              "type": "string"
+            },
+            {
+              "id": "635e0ea5-4e5d-462a-8f64-59f618c05ad3",
+              "name": "message",
+              "value": "We need to automate lead processing",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        0,
+        240
+      ],
+      "id": "d6e37bc7-1d80-4673-9044-ec629f666ee4",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "7a712533-d2de-4205-87e0-c7a8a5591936",
+              "leftValue": "={{ $json.email }}",
+              "rightValue": "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$",
+              "operator": {
+                "type": "string",
+                "operation": "regex"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        448,
+        0
+      ],
+      "id": "a192028c-41e4-423a-9aa6-e514104388fa",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1865f973-a58c-472e-89f5-0db06159cc25",
+              "name": "status",
+              "value": "valid",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        672,
+        -96
+      ],
+      "id": "ad620994-f0b8-42a0-a46b-c00f2bac9a87",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a49acc97-95c6-4599-a84b-8a97facac072",
+              "name": "status",
+              "value": "invalid",
+              "type": "string"
+            },
+            {
+              "id": "72095ef9-65cd-4c1c-9c05-f78f8dad76a1",
+              "name": "error",
+              "value": "Email format is invalid",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        688,
+        96
+      ],
+      "id": "63ccdaa4-4b5f-49a9-8027-d81f4a16a0e5",
+      "name": "Edit Fields2"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "lead-intake",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -256,
+        304
+      ],
+      "id": "d7901095-4650-478a-b26a-43099edfc2d3",
+      "name": "Webhook",
+      "webhookId": "de4d05a0-08fe-4529-9568-d170c01bd4f7"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a029845e-a799-4e5e-a156-9b431d7d9820",
+              "name": "name",
+              "value": "alex manoev",
+              "type": "string"
+            },
+            {
+              "id": "d444766b-b50f-4e3a-92c6-cfc525270042",
+              "name": "email",
+              "value": "nemilo",
+              "type": "string"
+            },
+            {
+              "id": "a76d5347-473b-4fe8-9c87-2d208dcdea2a",
+              "name": "company",
+              "value": "northstar studio",
+              "type": "string"
+            },
+            {
+              "id": "ed3b61ea-11fa-45b5-8bde-446096b5f7ce",
+              "name": "service",
+              "value": "AI automation",
+              "type": "string"
+            },
+            {
+              "id": "635e0ea5-4e5d-462a-8f64-59f618c05ad3",
+              "name": "message",
+              "value": "We need to automate lead processing",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        1088,
+        512
+      ],
+      "id": "c585fb1b-31d7-4173-b82a-11ebb40c3da2",
+      "name": "Edit Fields3"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        []
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "ee5787a5-dd14-4d4d-acaf-06cb5d027da9",
+  "meta": {
+    "instanceId": "be76cb2c56ea707a80c2497a97019de62f0b2db3f47f444ccd91941ed3bb326f"
+  },
+  "nodeGroups": [],
+  "id": "S4wUrDphOenkWmMr",
+  "tags": []
+}
