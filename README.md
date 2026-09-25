@@ -1,27 +1,97 @@
 # Lead Intake Automation
 
-## Overview
-A local n8n workflow that receives lead data through a webhook,
-validates the email format, and returns a processing status.
+An n8n workflow that automatically receives incoming leads, validates their email addresses, and separates valid leads from invalid submissions.
+
+## Business Problem
+
+Manual lead processing creates unnecessary work and increases the risk of accepting incorrect contact information.
+
+This workflow automates the initial lead validation step immediately after a lead is submitted.
 
 ## Workflow
-Webhook → IF → Valid Lead / Invalid Lead
 
-## Features
-- Receives JSON via HTTP POST
-- Validates email format using a regular expression
-- Routes valid and invalid submissions
-- Preserves the original lead fields
-- Returns a processing result
+```text
+Webhook
+   ↓
+Edit Fields
+   ↓
+Email Validation
+   ↓
+IF
+  ├── Valid Lead
+  └── Invalid Lead
+```
 
-## Test
-Send a POST request to the n8n webhook test URL with JSON data.
+## What It Does
 
-## Requirements
-- n8n
-- PowerShell or another HTTP client
+* Receives lead data through an HTTP POST webhook
+* Extracts the lead's name and email
+* Validates the email format using a regular expression
+* Routes valid and invalid leads into separate branches
+* Returns a structured result describing the validation status
 
-## Notes
-This project is a local portfolio demo.
-The email check validates format only; it does not verify
-whether the mailbox exists.
+## Example Input
+
+```json
+{
+  "name": "Alex Manoev",
+  "email": "alex@example.com"
+}
+```
+
+## Valid Lead Output
+
+```json
+{
+  "name": "Alex Manoev",
+  "email": "alex@example.com",
+  "status": "valid"
+}
+```
+
+## Invalid Lead Output
+
+```json
+{
+  "name": "Alex Manoev",
+  "email": "not-an-email",
+  "status": "invalid",
+  "error": "Email format is invalid"
+}
+```
+
+## Technologies
+
+* n8n
+* Webhooks
+* JavaScript expressions
+* Regular expressions
+* HTTP / JSON
+* Git / GitHub
+
+## Business Value
+
+The workflow can be used as an initial layer in a larger lead-processing system.
+
+Possible extensions include:
+
+* CRM integration
+* Google Sheets / Airtable storage
+* Lead enrichment
+* Duplicate detection
+* AI lead qualification
+* Email notifications
+* Slack notifications
+* Automatic lead scoring
+
+## Project Structure
+
+```text
+01-lead-intake/
+├── README.md
+└── workflow.json
+```
+
+## Author
+
+Wokich — AI Automation Portfolio
