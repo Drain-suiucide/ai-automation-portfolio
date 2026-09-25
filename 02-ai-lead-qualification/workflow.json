@@ -1,0 +1,306 @@
+{
+  "name": "My workflow 2",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "ai-lead-qualification",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "a039dcb1-b619-40aa-8d2a-a6e7d6cc3c19",
+      "name": "Webhook",
+      "webhookId": "7fbf01ca-ffce-498d-870d-04911e492121"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9fef5875-c0e4-46c3-9fd2-30eb696cf375",
+              "name": "name",
+              "value": "Anna Smith",
+              "type": "string"
+            },
+            {
+              "id": "03e6b71e-71ce-43ec-9a28-bedb2effaddb",
+              "name": "company",
+              "value": "TechFlow Solutions",
+              "type": "string"
+            },
+            {
+              "id": "18ae27cd-6200-46a8-8bfb-09d80c404878",
+              "name": "employees",
+              "value": "30",
+              "type": "string"
+            },
+            {
+              "id": "887d0c96-ca4e-4a5f-acb5-66faf4e145c1",
+              "name": "message",
+              "value": "We need AI automation for customer support and internal processes",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        224,
+        0
+      ],
+      "id": "f07a89d1-36df-42f5-b0ee-8675331a7706",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are a sales qualification AI assistant.\n\nAnalyze the incoming lead and return ONLY JSON.\n\nRequired format:\n\n{\n  \"lead_score\": 0,\n  \"category\": \"high_value\",\n  \"reason\": \"short explanation\"\n}\n\nRules:\n- Score from 0 to 100\n- high_value = serious business request with clear automation potential\n- medium = possible opportunity but unclear requirements\n- low_value = weak request or no clear business need\n\nLead information:\n\nCompany: {{ $json.company }}\n\nEmployees: {{ $json.employees }}\n\nMessage: {{ $json.message }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        448,
+        0
+      ],
+      "id": "dbd1e919-2462-40b3-808e-0c773e71b75e",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": "baidu/ernie-4.5-vl-424b-a47b",
+        "options": {
+          "temperature": 0.2,
+          "timeout": 60000
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        320,
+        208
+      ],
+      "id": "b47e7e12-5f10-45ea-8b91-902599e5669e",
+      "name": "OpenRouter Chat Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "akRlYMbJpcck2qjd",
+          "name": "OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "13ec5a70-dd1c-4ece-b342-3035e146f949",
+              "leftValue": "={{ $json.lead_score }}",
+              "rightValue": 70,
+              "operator": {
+                "type": "number",
+                "operation": "gte"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        816,
+        0
+      ],
+      "id": "67622c62-3b96-44d1-a13e-7afd5ea8372e",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2b058b7e-52ff-4d4b-aa6a-11f20a5b51c1",
+              "name": "priority",
+              "value": "HIGH",
+              "type": "string"
+            },
+            {
+              "id": "7f8e9cca-40fd-42dd-b780-a75a88ac2dfe",
+              "name": "action",
+              "value": "Send to sales team immediately",
+              "type": "string"
+            },
+            {
+              "id": "7ce6e509-8189-4850-b769-5aa509246bcc",
+              "name": "message",
+              "value": "AI identified this lead as a high-value opportunity",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        1040,
+        -96
+      ],
+      "id": "2aa74a48-f969-4694-b556-2c13e76bc8e7",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d0ad370e-cae6-4d3a-8d9c-33e08865e9e6",
+              "name": "status",
+              "value": "LOW",
+              "type": "string"
+            },
+            {
+              "id": "442c023a-398c-4214-93cd-4c3a05a9081b",
+              "name": "action",
+              "value": "Add to nurturing sequence",
+              "type": "string"
+            },
+            {
+              "id": "892b516f-cc80-421a-820a-59088c0d198d",
+              "name": "message",
+              "value": "Lead requires further qualification",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        1056,
+        48
+      ],
+      "id": "6e0c6b02-1bcd-4ee7-8216-6e0bbc748745",
+      "name": "Edit Fields2"
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.map(item => {\n  const aiResult = JSON.parse(item.json.output);\n\n  return {\n    json: {\n      ...item.json,\n      lead_score: aiResult.lead_score,\n      category: aiResult.category,\n      reason: aiResult.reason\n    }\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        864,
+        256
+      ],
+      "id": "9b172735-dc48-46fd-b804-eb547a8461bb",
+      "name": "Code in JavaScript"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "fe5a5e8f-98e6-433c-9052-86aef41dd2a7",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "be76cb2c56ea707a80c2497a97019de62f0b2db3f47f444ccd91941ed3bb326f"
+  },
+  "nodeGroups": [],
+  "id": "L8nuvjZXVLotqCiF",
+  "tags": []
+}
