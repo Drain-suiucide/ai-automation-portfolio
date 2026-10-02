@@ -1,0 +1,45 @@
+{
+ "language": "en",
+ "segments": [
+  {
+   "id": "seg-1",
+   "start": 0.0,
+   "end": 5.9,
+   "speaker": "agent",
+   "text": "Hello Ola, this is Priya Nair from Northbeam sales. This call is being recorded.",
+   "confidence": 0.92
+  },
+  {
+   "id": "seg-2",
+   "start": 6.5,
+   "end": 14.5,
+   "speaker": "customer",
+   "text": "Hi Priya. We would like to ask you to delete our data after the trial, if that is possible.",
+   "confidence": 0.92
+  },
+  {
+   "id": "seg-3",
+   "start": 15.1,
+   "end": 19.3,
+   "speaker": "agent",
+   "text": "Of course. I'll confirm the deletion process by email tomorrow.",
+   "confidence": 0.92
+  },
+  {
+   "id": "seg-4",
+   "start": 19.9,
+   "end": 26.6,
+   "speaker": "customer",
+   "text": "Thank you. We just wanted a short trial to see whether the dashboard fits our team.",
+   "confidence": 0.92
+  },
+  {
+   "id": "seg-5",
+   "start": 27.2,
+   "end": 31.8,
+   "speaker": "agent",
+   "text": "Understood. I will schedule a wrap up call for next week.",
+   "confidence": 0.92
+  }
+ ]
+}

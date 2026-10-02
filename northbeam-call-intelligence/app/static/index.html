@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Call review - Northbeam</title>
+<style>
+:root {
+  --bg: #eef1f4; --panel: #fff; --ink: #17212b; --muted: #5a6876; --line: #d7dee5;
+  --accent: #23486b; --accent-soft: #cfe0f0; --focus: #fff1b8;
+  --warn: #a85b00; --warn-bg: #fff4e0; --stop: #a32b2b; --stop-bg: #fdecec;
+  --ok: #1d6b45; --ok-bg: #e7f5ec; --idle: #5a6876; --idle-bg: #e9edf1;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Charter, Georgia, serif;
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.45 var(--sans); }
+button { font: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+header { display: flex; align-items: center; gap: 16px; padding: 12px 20px; background: var(--panel);
+  border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 2; }
+header h1 { font-size: 17px; margin: 0; font-weight: 650; }
+#summary { color: var(--muted); flex: 1; }
+.btn { border: 1px solid var(--line); background: var(--panel); color: var(--ink); padding: 7px 14px;
+  border-radius: 6px; cursor: pointer; }
+.btn:hover { border-color: var(--accent); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn.danger { color: var(--stop); }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+main { display: grid; grid-template-columns: 320px minmax(0, 1fr); min-height: calc(100% - 55px); }
+#list { border-right: 1px solid var(--line); background: var(--panel); overflow-y: auto; }
+.item { display: block; width: 100%; text-align: left; border: 0; border-bottom: 1px solid var(--line);
+  border-left: 4px solid var(--idle); background: transparent; padding: 11px 14px; cursor: pointer; }
+.item[aria-current="true"] { background: #f2f6fa; }
+.item:hover { background: #f7f9fb; }
+.item.warn { border-left-color: var(--warn); } .item.stop { border-left-color: var(--stop); }
+.item.ok { border-left-color: var(--ok); }
+.item .name { font-weight: 600; display: block; }
+.item .sub { color: var(--muted); font-size: 13px; }
+.chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 5px; }
+.chip { font-size: 12px; padding: 1px 8px; border-radius: 10px; background: var(--warn-bg); color: var(--warn); }
+.pill { display: inline-block; font-size: 13px; padding: 2px 10px; border-radius: 12px; font-weight: 600; }
+.pill.warn { background: var(--warn-bg); color: var(--warn); } .pill.stop { background: var(--stop-bg); color: var(--stop); }
+.pill.ok { background: var(--ok-bg); color: var(--ok); } .pill.muted { background: var(--idle-bg); color: var(--idle); }
+#detail { padding: 22px 26px 90px; min-width: 0; }
+.empty { max-width: 440px; margin: 12vh auto 0; color: var(--muted); }
+.empty h2 { color: var(--ink); font-size: 19px; margin: 0 0 6px; }
+.top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px; margin-bottom: 4px; }
+.top h2 { font-size: 22px; margin: 0; }
+.meta { color: var(--muted); margin: 0 0 14px; }
+.notice { padding: 10px 14px; border-radius: 6px; margin: 0 0 14px; background: var(--idle-bg); }
+.notice.stop { background: var(--stop-bg); color: var(--stop); }
+.flag { border-left: 4px solid var(--warn); background: var(--warn-bg); padding: 8px 12px; margin: 0 0 8px; border-radius: 0 6px 6px 0; }
+.flag b { display: block; }
+.cols { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 22px; margin-top: 18px; }
+h3 { font-size: 15px; margin: 0 0 8px; }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; }
+.seg { display: grid; grid-template-columns: 46px 74px 1fr; gap: 6px; padding: 5px 6px; border-radius: 4px; }
+.seg .t { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; padding-top: 2px; }
+.seg .who { color: var(--muted); font-size: 13px; padding-top: 2px; }
+.seg.agent .who { color: var(--accent); font-weight: 600; }
+.seg .txt { font-family: var(--serif); font-size: 16px; line-height: 1.5; }
+.seg.focus { background: var(--focus); }
+mark { background: linear-gradient(transparent 60%, var(--accent-soft) 60%); color: inherit; }
+.find { margin: 0 0 14px; }
+.find ul { margin: 0; padding: 0; list-style: none; }
+.find li { padding: 7px 0; border-top: 1px solid var(--line); }
+.find li:first-child { border-top: 0; }
+.quote { color: var(--muted); font-family: var(--serif); font-style: italic; display: block; }
+.cite { border: 0; background: none; color: var(--accent); cursor: pointer; padding: 0; text-decoration: underline; font-size: 13px; }
+.state { font-size: 12px; color: var(--muted); }
+pre { white-space: pre-wrap; background: var(--idle-bg); padding: 10px; border-radius: 6px; font: 13px/1.4 var(--sans); margin: 6px 0 0; }
+details { margin-top: 14px; } summary { cursor: pointer; color: var(--muted); }
+.bar { position: fixed; left: 320px; right: 0; bottom: 0; background: var(--panel); border-top: 1px solid var(--line);
+  padding: 10px 26px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.bar input { padding: 7px 10px; border: 1px solid var(--line); border-radius: 6px; font: inherit; width: 150px; }
+.bar .spacer { flex: 1; }
+#toast { position: fixed; top: 64px; right: 20px; background: var(--stop); color: #fff; padding: 9px 14px; border-radius: 6px; display: none; z-index: 3; }
+@media (max-width: 900px) {
+  main { grid-template-columns: 1fr; } #list { max-height: 34vh; border-right: 0; border-bottom: 1px solid var(--line); }
+  .cols { grid-template-columns: 1fr; } .bar { left: 0; }
+}
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Call review</h1>
+  <span id="summary">Loading...</span>
+  <button class="btn" id="loadDemo">Load demo scenarios</button>
+</header>
+<div id="toast" role="alert"></div>
+<main>
+  <nav id="list" aria-label="Calls"></nav>
+  <section id="detail" aria-live="polite"></section>
+</main>
+<script>
+"use strict";
+const $ = (s) => document.querySelector(s);
+const state = { calls: [], selected: null };
+
+function h(tag, attrs, ...kids) {
+  const el = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs || {})) {
+    if (k === "class") el.className = v;
+    else if (k.startsWith("on")) el.addEventListener(k.slice(2), v);
+    else if (v !== false && v != null) el.setAttribute(k, v === true ? "" : v);
+  }
+  for (const kid of kids.flat()) {
+    if (kid == null || kid === false) continue;
+    el.append(kid.nodeType ? kid : document.createTextNode(String(kid)));
+  }
+  return el;
+}
+
+async function api(path, opts) {
+  const r = await fetch(path, opts);
+  const body = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(body.detail || r.statusText);
+  return body;
+}
+
+function toast(msg) {
+  const t = $("#toast");
+  t.textContent = msg; t.style.display = "block";
+  setTimeout(() => { t.style.display = "none"; }, 5000);
+}
+
+const STATUS = {
+  pending_review: ["Needs review", "warn"], analyzed: ["Analyzed", "ok"], approved: ["Approved", "ok"],
+  rejected: ["Rejected", "muted"], blocked_no_consent: ["Blocked, no consent", "stop"],
+  needs_manual_review: ["Needs manual review", "warn"], deleted: ["Deleted", "muted"],
+  received: ["Received", "muted"],
+};
+const FLAG = {
+  discount_over_policy: "Discount over policy", churn_risk: "Churn risk", compliance_review: "Legal or data topic",
+  prompt_injection_suspected: "Instruction-like speech", low_asr_confidence: "Low ASR confidence",
+  unknown_speaker_role: "Unknown speaker role", ungrounded_items_dropped: "Ungrounded claims dropped",
+};
+const REASON = {
+  consent_declared_false: "The call metadata says recording consent was not given.",
+  no_consent_phrase_in_probe: "No recording announcement was found in the first minute, and no consent was recorded.",
+  too_short_or_silent: "Too little speech to analyze. No summary was generated.",
+  asr_failed: "Transcription failed.", llm_output_invalid: "The model returned output that could not be validated.",
+  consent_probe_failed: "The consent check could not run.",
+};
+const mmss = (s) => `${String(Math.floor(s / 60)).padStart(2, "0")}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
+const pill = (status) => { const [label, tone] = STATUS[status] || [status, "muted"]; return h("span", { class: `pill ${tone}` }, label); };
+
+function renderList() {
+  const nav = $("#list");
+  nav.replaceChildren(...state.calls.map((c) => {
+    const tone = (STATUS[c.status] || [0, "muted"])[1];
+    return h("button", { class: `item ${tone}`, "aria-current": String(c.id === state.selected), onclick: () => select(c.id) },
+      h("span", { class: "name" }, c.customer_company || c.external_id),
+      h("span", { class: "sub" }, `${c.id}, ${(STATUS[c.status] || [c.status])[0]}`),
+      c.flags.length ? h("span", { class: "chips" }, c.flags.map((f) => h("span", { class: "chip" }, FLAG[f] || f))) : null);
+  }));
+  const n = state.calls.filter((c) => c.status === "pending_review").length;
+  $("#summary").textContent = state.calls.length ? `${state.calls.length} calls, ${n} waiting for review` : "No calls yet";
+}
+
+function segText(seg, quotes) {
+  const low = seg.text.toLowerCase();
+  for (const q of quotes) {
+    const i = low.indexOf(q.toLowerCase());
+    if (i >= 0) return [seg.text.slice(0, i), h("mark", {}, seg.text.slice(i, i + q.length)), seg.text.slice(i + q.length)];
+  }
+  return [seg.text];
+}
+
+function focusSegs(ids) {
+  document.querySelectorAll(".seg").forEach((el) => el.classList.toggle("focus", ids.includes(el.dataset.seg)));
+  const first = document.querySelector(".seg.focus");
+  if (first) first.scrollIntoView({ block: "center", behavior: "smooth" });
+}
+
+function cite(ids, segs) {
+  return h("span", {}, ids.map((id) => {
+    const s = segs.find((x) => x.id === id);
+    return h("button", { class: "cite", onclick: () => focusSegs([id]) }, s ? `${id} at ${mmss(s.start)}` : id);
+  }));
+}
+
+function findings(call) {
+  const ins = call.insights, segs = call.segments;
+  const box = h("div", { class: "panel" }, h("h3", {}, "What the model found, with proof"));
+  const sec = (title, items, render) => items.length ? h("div", { class: "find" }, h("h3", {}, title),
+    h("ul", {}, items.map((it) => h("li", {}, render(it))))) : null;
+  box.append(
+    h("p", { class: "find" }, ins.summary),
+    sec("Action items", ins.action_items, (a) => [`${a.text} `, h("span", { class: "state" }, `${a.owner}${a.due ? `, due ${a.due}` : ""}`),
+      h("span", { class: "quote" }, `"${a.quote}"`), cite(a.evidence, segs)]),
+    sec("Objections", ins.objections, (o) => [o.type, h("span", { class: "quote" }, `"${o.quote}"`), cite(o.evidence, segs)]),
+    sec("Commitments", ins.commitments, (c) => [`${c.who}: ${c.kind}${c.value_pct != null ? ` ${c.value_pct}%` : ""}`,
+      h("span", { class: "quote" }, `"${c.quote}"`), cite(c.evidence, segs)]),
+    ins.competitors.length ? h("p", { class: "find" }, `Competitors mentioned: ${ins.competitors.join(", ")}`) : null,
+    h("p", { class: "find" }, `Customer tone: ${ins.sentiment}`),
+    call.validation ? h("p", { class: "state" }, `${call.validation.proposed} claims proposed, ${call.validation.kept} kept, ` +
+      `${Object.values(call.validation.dropped).reduce((a, b) => a + b, 0)} dropped for missing proof.`) : null);
+  return box;
+}
+
+function actions(call) {
+  if (!call.actions.length) return null;
+  const label = { pending_approval: "waiting for approval", executed: "written to CRM", approved_draft: "approved, a person sends it", cancelled: "cancelled" };
+  return h("div", { class: "panel", style: "margin-top:14px" }, h("h3", {}, "CRM actions"),
+    h("ul", { style: "margin:0;padding:0;list-style:none" }, call.actions.map((a) => h("li", { style: "padding:5px 0" },
+      a.kind === "note" ? "CRM note" : a.kind === "task" ? `Task: ${a.payload.text}` : "Follow-up draft (never sent by the system)",
+      " ", h("span", { class: "state" }, label[a.state] || a.state),
+      a.kind === "followup_draft" ? h("pre", {}, a.payload.body_redacted) : null))));
+}
+
+function renderDetail(call) {
+  const d = $("#detail");
+  const kids = [h("div", { class: "top" }, h("h2", {}, call.meta.customer_company || call.external_id), pill(call.status)),
+    h("p", { class: "meta" }, `${call.id}, ${call.external_id}${call.meta.channel ? `, ${call.meta.channel}` : ""}`)];
+  if (call.status === "deleted") {
+    kids.push(h("p", { class: "notice" }, `Erased on ${call.deleted_at}. Audio, transcript, insights and CRM records are gone. Only the audit trail and the content hash remain.`));
+  } else if (call.status_reason && REASON[call.status_reason]) {
+    kids.push(h("p", { class: "notice stop" }, REASON[call.status_reason]));
+  }
+  for (const f of call.flags.filter((x) => x.severity === "review")) {
+    kids.push(h("div", { class: "flag" }, h("b", {}, FLAG[f.code] || f.code), f.reason, " ", f.evidence.length ? cite(f.evidence, call.segments) : null));
+  }
+  if (call.insights || call.segments.length) {
+    const quotes = {};
+    if (call.insights) for (const it of [...call.insights.action_items, ...call.insights.objections, ...call.insights.commitments])
+      for (const e of it.evidence) (quotes[e] = quotes[e] || []).push(it.quote);
+    const tr = h("div", { class: "panel" }, h("h3", {}, "Transcript, personal data replaced by tokens"),
+      call.segments.map((s) => h("div", { class: `seg ${s.speaker}`, "data-seg": s.id },
+        h("span", { class: "t" }, mmss(s.start)), h("span", { class: "who" }, s.speaker), h("span", { class: "txt" }, segText(s, quotes[s.id] || [])))));
+    kids.push(h("div", { class: "cols" }, tr, h("div", {}, call.insights ? findings(call) : null, actions(call))));
+  }
+  kids.push(h("details", {}, h("summary", {}, "Audit trail"), h("pre", {}, call.audit.map((e) => `${e.ts}  ${e.event}  ${JSON.stringify(e.data)}`).join("\n"))));
+  kids.push(h("details", {}, h("summary", {}, "Raw JSON"), h("pre", {}, JSON.stringify(call, null, 2))));
+  if (["analyzed", "pending_review"].includes(call.status)) kids.push(bar(call, true));
+  else if (call.status !== "deleted") kids.push(bar(call, false));
+  d.replaceChildren(...kids);
+}
+
+function bar(call, canDecide) {
+  const reviewer = h("input", { id: "reviewer", value: "reviewer-1", "aria-label": "Reviewer id" });
+  return h("div", { class: "bar" },
+    canDecide ? [reviewer,
+      h("button", { class: "btn primary", onclick: () => decide(call, "approve", reviewer.value) }, "Approve and apply"),
+      h("button", { class: "btn", onclick: () => decide(call, "reject", reviewer.value) }, "Reject")] : null,
+    canDecide ? null : h("span", { class: "state" }, call.approval ? `${call.approval.decision} by ${call.approval.reviewer_id}` : ""),
+    h("span", { class: "spacer" }),
+    h("button", { class: "btn danger", onclick: () => erase(call) }, "Erase this call"));
+}
+
+async function decide(call, kind, reviewer) {
+  try {
+    const out = await api(`/v1/calls/${call.id}/${kind}`, { method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ reviewer_id: reviewer.trim(), content_hash: call.review_hash }) });
+    await refresh(out.id);
+  } catch (e) { toast(e.message); }
+}
+
+async function erase(call) {
+  if (!confirm(`Erase ${call.id}? Audio, transcript and insights are removed permanently.`)) return;
+  try { await api(`/v1/calls/${call.id}`, { method: "DELETE" }); await refresh(call.id); } catch (e) { toast(e.message); }
+}
+
+async function select(id) {
+  state.selected = id;
+  renderList();
+  try { renderDetail(await api(`/v1/calls/${id}`)); } catch (e) { toast(e.message); }
+}
+
+async function refresh(selectId) {
+  try { state.calls = await api("/v1/calls"); } catch (e) { toast(e.message); return; }
+  const target = selectId || state.selected || (state.calls.find((c) => c.status === "pending_review") || state.calls[0] || {}).id;
+  if (target) return select(target);
+  renderList();
+  $("#detail").replaceChildren(h("div", { class: "empty" }, h("h2", {}, "No calls yet"),
+    h("p", {}, "Load the demo scenarios to see how each kind of call is handled: clean, risky, private, blocked and erased.")));
+}
+
+$("#loadDemo").addEventListener("click", async (ev) => {
+  ev.target.disabled = true;
+  try { await api("/v1/demo/load", { method: "POST" }); await refresh(); } catch (e) { toast(e.message); }
+  ev.target.disabled = false;
+});
+refresh();
+</script>
+</body>
+</html>

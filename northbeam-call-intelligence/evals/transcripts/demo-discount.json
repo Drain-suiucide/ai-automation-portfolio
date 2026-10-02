@@ -1,0 +1,69 @@
+{
+ "language": "en",
+ "segments": [
+  {
+   "id": "seg-1",
+   "start": 0.0,
+   "end": 8.8,
+   "speaker": "agent",
+   "text": "Hi Maria, this is Sam Rivera from Northbeam sales. As agreed, we are talking about the annual plan for your team.",
+   "confidence": 0.92
+  },
+  {
+   "id": "seg-2",
+   "start": 9.4,
+   "end": 16.1,
+   "speaker": "customer",
+   "text": "Hello Sam. We like the product, but the price for sixty seats is above our budget.",
+   "confidence": 0.92
+  },
+  {
+   "id": "seg-3",
+   "start": 16.7,
+   "end": 23.4,
+   "speaker": "agent",
+   "text": "I understand. I can do twenty-five percent off the list price if you sign this week.",
+   "confidence": 0.92
+  },
+  {
+   "id": "seg-4",
+   "start": 24.0,
+   "end": 28.6,
+   "speaker": "customer",
+   "text": "Twenty-five would help a lot. Can you put that in writing?",
+   "confidence": 0.92
+  },
+  {
+   "id": "seg-5",
+   "start": 29.2,
+   "end": 34.2,
+   "speaker": "agent",
+   "text": "Yes, I'll send the revised quote by Tuesday with the discount included.",
+   "confidence": 0.92
+  },
+  {
+   "id": "seg-6",
+   "start": 34.8,
+   "end": 39.8,
+   "speaker": "customer",
+   "text": "Great. Our finance team will review it as soon as it arrives.",
+   "confidence": 0.92
+  },
+  {
+   "id": "seg-7",
+   "start": 40.4,
+   "end": 46.3,
+   "speaker": "agent",
+   "text": "Perfect. I will also share the implementation timeline so finance sees the full picture.",
+   "confidence": 0.92
+  },
+  {
+   "id": "seg-8",
+   "start": 46.9,
+   "end": 49.9,
+   "speaker": "customer",
+   "text": "Thank you, that sounds good.",
+   "confidence": 0.92
+  }
+ ]
+}

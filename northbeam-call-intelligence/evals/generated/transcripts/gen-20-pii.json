@@ -1,0 +1,45 @@
+{
+ "language": "en",
+ "segments": [
+  {
+   "id": "seg-1",
+   "start": 0.0,
+   "end": 6.7,
+   "speaker": "agent",
+   "text": "Hello, this is Priya Nair from Northbeam sales. This call is being recorded for our notes.",
+   "confidence": 0.9
+  },
+  {
+   "id": "seg-2",
+   "start": 7.2,
+   "end": 13.1,
+   "speaker": "customer",
+   "text": "Please bill the card 4111 1111 1111 1111 and send the invoice to buyer20@nordlicht.test.",
+   "confidence": 0.9
+  },
+  {
+   "id": "seg-3",
+   "start": 13.6,
+   "end": 19.1,
+   "speaker": "customer",
+   "text": "You can reach me on +44 20 7946 1020 if anything is unclear.",
+   "confidence": 0.9
+  },
+  {
+   "id": "seg-4",
+   "start": 19.6,
+   "end": 23.4,
+   "speaker": "agent",
+   "text": "Thank you. I'll send the contract draft by Monday.",
+   "confidence": 0.9
+  },
+  {
+   "id": "seg-5",
+   "start": 23.9,
+   "end": 26.9,
+   "speaker": "customer",
+   "text": "Great, that is all.",
+   "confidence": 0.9
+  }
+ ]
+}

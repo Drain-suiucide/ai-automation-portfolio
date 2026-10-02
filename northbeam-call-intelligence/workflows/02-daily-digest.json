@@ -1,0 +1,86 @@
+{
+  "name": "02 Daily digest",
+  "nodes": [
+    {
+      "id": "d1",
+      "name": "Weekdays 08:00",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        240,
+        300
+      ],
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 8 * * 1-5"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "d2",
+      "name": "Get daily report",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        480,
+        300
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "http://call-intelligence:8030/v1/reports/daily?hours=24",
+        "options": {
+          "timeout": 120000
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 2000
+    },
+    {
+      "id": "d3",
+      "name": "Send digest (connect Slack, Telegram or e-mail here)",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        720,
+        300
+      ],
+      "parameters": {}
+    }
+  ],
+  "connections": {
+    "Weekdays 08:00": {
+      "main": [
+        [
+          {
+            "node": "Get daily report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get daily report": {
+      "main": [
+        [
+          {
+            "node": "Send digest (connect Slack, Telegram or e-mail here)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {},
+  "tags": []
+}

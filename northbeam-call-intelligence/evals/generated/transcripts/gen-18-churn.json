@@ -1,0 +1,45 @@
+{
+ "language": "en",
+ "segments": [
+  {
+   "id": "seg-1",
+   "start": 0.0,
+   "end": 6.7,
+   "speaker": "agent",
+   "text": "Hello, this is Leo Martins from Northbeam sales. This call is being recorded for our notes.",
+   "confidence": 0.9
+  },
+  {
+   "id": "seg-2",
+   "start": 7.2,
+   "end": 13.1,
+   "speaker": "customer",
+   "text": "Honestly we are frustrated. The exports have been broken for weeks and nobody helps.",
+   "confidence": 0.9
+  },
+  {
+   "id": "seg-3",
+   "start": 13.6,
+   "end": 18.6,
+   "speaker": "customer",
+   "text": "We are thinking about cancelling and switching to Kestrel Suite at renewal.",
+   "confidence": 0.9
+  },
+  {
+   "id": "seg-4",
+   "start": 19.1,
+   "end": 24.6,
+   "speaker": "agent",
+   "text": "I am sorry to hear that. I'll share the pricing sheet by Thursday.",
+   "confidence": 0.9
+  },
+  {
+   "id": "seg-5",
+   "start": 25.1,
+   "end": 28.1,
+   "speaker": "customer",
+   "text": "We will see. Thanks.",
+   "confidence": 0.9
+  }
+ ]
+}

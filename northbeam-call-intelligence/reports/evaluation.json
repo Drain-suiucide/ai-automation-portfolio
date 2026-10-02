@@ -1,0 +1,24 @@
+{
+ "gates": {
+  "status matches gold on every call": true,
+  "policy flag recall = 1.0": true,
+  "action-item F1 >= 0.80": true,
+  "hallucinated claims that survive validation = 0": true,
+  "PII canaries in prompts / database / logs = 0": true,
+  "blocked calls that reach full ASR or the model = 0": true,
+  "follow-up drafts executed or sent = 0": true
+ },
+ "status_accuracy": 1.0,
+ "flag_recall": 1.0,
+ "flag_precision": 1.0,
+ "actions": {
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1": 1.0
+ },
+ "injected": 104,
+ "dropped": 104,
+ "leaked": 0,
+ "pii_leaks": 0,
+ "kept_after_noise": 55
+}

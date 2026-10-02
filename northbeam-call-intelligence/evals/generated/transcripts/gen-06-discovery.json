@@ -1,0 +1,53 @@
+{
+ "language": "en",
+ "segments": [
+  {
+   "id": "seg-1",
+   "start": 0.0,
+   "end": 6.7,
+   "speaker": "agent",
+   "text": "Hello, this is Priya Nair from Northbeam sales. This call is being recorded for our notes.",
+   "confidence": 0.9
+  },
+  {
+   "id": "seg-2",
+   "start": 7.2,
+   "end": 13.9,
+   "speaker": "customer",
+   "text": "Hi, we are Quarry Works and we need something for about 20 people to track orders.",
+   "confidence": 0.9
+  },
+  {
+   "id": "seg-3",
+   "start": 14.4,
+   "end": 19.9,
+   "speaker": "agent",
+   "text": "Understood. Our team plan fits well. I'll prepare the revised quote by Friday.",
+   "confidence": 0.9
+  },
+  {
+   "id": "seg-4",
+   "start": 20.4,
+   "end": 25.0,
+   "speaker": "customer",
+   "text": "Good. Please also confirm the onboarding steps for the first week.",
+   "confidence": 0.9
+  },
+  {
+   "id": "seg-5",
+   "start": 25.5,
+   "end": 29.3,
+   "speaker": "agent",
+   "text": "Of course. I'll share the revised quote by Thursday.",
+   "confidence": 0.9
+  },
+  {
+   "id": "seg-6",
+   "start": 29.8,
+   "end": 32.8,
+   "speaker": "customer",
+   "text": "Perfect, that sounds good. Thank you.",
+   "confidence": 0.9
+  }
+ ]
+}

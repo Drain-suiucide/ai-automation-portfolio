@@ -1,0 +1,37 @@
+{
+ "language": "en",
+ "segments": [
+  {
+   "id": "seg-1",
+   "start": 0.0,
+   "end": 5.5,
+   "speaker": "agent",
+   "text": "Hi, it is Priya Nair from Northbeam. Thanks for taking my call today.",
+   "confidence": 0.9
+  },
+  {
+   "id": "seg-2",
+   "start": 6.0,
+   "end": 11.5,
+   "speaker": "customer",
+   "text": "No problem. We are Alder Logistics, looking at a plan for 20 people.",
+   "confidence": 0.9
+  },
+  {
+   "id": "seg-3",
+   "start": 12.0,
+   "end": 17.0,
+   "speaker": "agent",
+   "text": "Great, our plans start monthly. I'll send the pricing sheet by Friday.",
+   "confidence": 0.9
+  },
+  {
+   "id": "seg-4",
+   "start": 17.5,
+   "end": 20.5,
+   "speaker": "customer",
+   "text": "Thanks, talk soon.",
+   "confidence": 0.9
+  }
+ ]
+}

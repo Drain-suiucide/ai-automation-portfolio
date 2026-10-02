@@ -1,0 +1,37 @@
+{
+ "language": "en",
+ "segments": [
+  {
+   "id": "seg-1",
+   "start": 0.0,
+   "end": 6.7,
+   "speaker": "agent",
+   "text": "Hello, this is Sam Rivera from Northbeam sales. This call is being recorded for our notes.",
+   "confidence": 0.9
+  },
+  {
+   "id": "seg-2",
+   "start": 7.2,
+   "end": 12.2,
+   "speaker": "customer",
+   "text": "Before we sign, our lawyer needs a data processing agreement under GDPR.",
+   "confidence": 0.9
+  },
+  {
+   "id": "seg-3",
+   "start": 12.7,
+   "end": 15.7,
+   "speaker": "agent",
+   "text": "I'll share the contract draft by Tuesday.",
+   "confidence": 0.9
+  },
+  {
+   "id": "seg-4",
+   "start": 16.2,
+   "end": 19.2,
+   "speaker": "customer",
+   "text": "Good, that will do for now.",
+   "confidence": 0.9
+  }
+ ]
+}

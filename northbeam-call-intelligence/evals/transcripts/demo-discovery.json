@@ -1,0 +1,85 @@
+{
+ "language": "en",
+ "segments": [
+  {
+   "id": "seg-1",
+   "start": 0.0,
+   "end": 8.0,
+   "speaker": "agent",
+   "text": "Hello, this is Sam Rivera from Northbeam sales. Before we start, this call is being recorded for note taking.",
+   "confidence": 0.92
+  },
+  {
+   "id": "seg-2",
+   "start": 8.6,
+   "end": 19.9,
+   "speaker": "customer",
+   "text": "Hi Sam, thanks for making time. We are a logistics company with about forty people in the office and we need a better way to track shipments.",
+   "confidence": 0.92
+  },
+  {
+   "id": "seg-3",
+   "start": 20.5,
+   "end": 23.5,
+   "speaker": "agent",
+   "text": "Great, tell me what you use today.",
+   "confidence": 0.92
+  },
+  {
+   "id": "seg-4",
+   "start": 24.1,
+   "end": 31.2,
+   "speaker": "customer",
+   "text": "Mostly spreadsheets and a shared inbox. It breaks every week when two people edit the same file.",
+   "confidence": 0.92
+  },
+  {
+   "id": "seg-5",
+   "start": 31.8,
+   "end": 41.9,
+   "speaker": "agent",
+   "text": "Understood. For forty seats our Team plan fits, and it includes single sign on. I'll send you a quote for forty seats by Friday.",
+   "confidence": 0.92
+  },
+  {
+   "id": "seg-6",
+   "start": 42.5,
+   "end": 52.2,
+   "speaker": "customer",
+   "text": "Good. Single sign on is a must for us, our IT lead asked about it twice. Can you also share the security overview?",
+   "confidence": 0.92
+  },
+  {
+   "id": "seg-7",
+   "start": 52.8,
+   "end": 61.6,
+   "speaker": "agent",
+   "text": "Yes, I will share the security overview after this call. Let me schedule a demo with your IT lead next week.",
+   "confidence": 0.92
+  },
+  {
+   "id": "seg-8",
+   "start": 62.2,
+   "end": 66.4,
+   "speaker": "customer",
+   "text": "Perfect, that sounds good. Please book it for Tuesday morning.",
+   "confidence": 0.92
+  },
+  {
+   "id": "seg-9",
+   "start": 67.0,
+   "end": 72.9,
+   "speaker": "agent",
+   "text": "Done, I'll book a demo for Tuesday and send the invite today. Anything else?",
+   "confidence": 0.92
+  },
+  {
+   "id": "seg-10",
+   "start": 73.5,
+   "end": 76.5,
+   "speaker": "customer",
+   "text": "No, thank you, this was very helpful.",
+   "confidence": 0.92
+  }
+ ]
+}

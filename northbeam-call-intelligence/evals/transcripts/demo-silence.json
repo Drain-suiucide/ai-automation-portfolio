@@ -1,0 +1,21 @@
+{
+ "language": "en",
+ "segments": [
+  {
+   "id": "seg-1",
+   "start": 0.0,
+   "end": 3.0,
+   "speaker": "agent",
+   "text": "Hello? Hello, can you hear me?",
+   "confidence": 0.31
+  },
+  {
+   "id": "seg-2",
+   "start": 3.6,
+   "end": 6.6,
+   "speaker": "customer",
+   "text": "[inaudible]",
+   "confidence": 0.18
+  }
+ ]
+}

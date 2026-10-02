@@ -1,0 +1,61 @@
+{
+ "language": "en",
+ "segments": [
+  {
+   "id": "seg-1",
+   "start": 0.0,
+   "end": 8.0,
+   "speaker": "agent",
+   "text": "Hi Jana, this is Sam Rivera from Northbeam sales. This call is being recorded, is that fine with you?",
+   "confidence": 0.92
+  },
+  {
+   "id": "seg-2",
+   "start": 8.6,
+   "end": 13.6,
+   "speaker": "customer",
+   "text": "Yes, that is fine. I would like to upgrade our plan today.",
+   "confidence": 0.92
+  },
+  {
+   "id": "seg-3",
+   "start": 14.2,
+   "end": 20.1,
+   "speaker": "agent",
+   "text": "Wonderful. To finish the order I need a billing contact and a payment method.",
+   "confidence": 0.92
+  },
+  {
+   "id": "seg-4",
+   "start": 20.7,
+   "end": 27.4,
+   "speaker": "customer",
+   "text": "Sure. Send the invoice to jana.novak@brightfield.test and you can call me on +420 601 234 567.",
+   "confidence": 0.92
+  },
+  {
+   "id": "seg-5",
+   "start": 28.0,
+   "end": 36.8,
+   "speaker": "customer",
+   "text": "The card is 4111 1111 1111 1111, and my extension is four one five five five five zero one two three.",
+   "confidence": 0.92
+  },
+  {
+   "id": "seg-6",
+   "start": 37.4,
+   "end": 42.9,
+   "speaker": "agent",
+   "text": "Thank you. I'll send the invoice today and confirm the upgrade by email.",
+   "confidence": 0.92
+  },
+  {
+   "id": "seg-7",
+   "start": 43.5,
+   "end": 46.5,
+   "speaker": "customer",
+   "text": "Great, that is all from me.",
+   "confidence": 0.92
+  }
+ ]
+}

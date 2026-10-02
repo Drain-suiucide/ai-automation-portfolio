@@ -1,0 +1,33 @@
+name: call-intelligence
+
+on:
+  push:
+    paths: ["northbeam-call-intelligence/**", ".github/workflows/call-intelligence.yml"]
+  pull_request:
+    paths: ["northbeam-call-intelligence/**", ".github/workflows/call-intelligence.yml"]
+
+defaults:
+  run:
+    working-directory: northbeam-call-intelligence
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - run: uv sync --extra dev
+      - run: uv run ruff check .
+      # TODO: make blocking after the first clean run (mypy was not run when the project was written)
+      - run: uv run mypy app scripts
+        continue-on-error: true
+      - run: uv run pytest -q
+      - name: Dataset generation is deterministic
+        run: |
+          uv run python scripts/generate_dataset.py
+          git diff --exit-code -- evals/
+      - run: uv run python scripts/evaluate.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: evaluation-report
+          path: northbeam-call-intelligence/reports/

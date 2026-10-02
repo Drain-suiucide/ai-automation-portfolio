@@ -1,0 +1,70 @@
+# Deterministic policy. Model output can ADD review flags but never remove them.
+max_discount_pct: 15          # agent statements above this go to a manager
+min_asr_confidence: 0.6       # average ASR confidence below this -> review
+min_words: 25                 # fewer spoken words -> needs_manual_review (silence / too short)
+consent_probe_seconds: 60     # only this much audio is probed when consent metadata is missing
+max_upload_mb: 50
+allowed_extensions: [wav, mp3, m4a, ogg]
+
+consent_phrases:
+  - this call is being recorded
+  - this call may be recorded
+  - this call is recorded
+  - recording this call
+  - record this call
+  - call recording
+  - we record our calls
+
+churn_keywords:
+  - cancel
+  - cancelling
+  - canceling
+  - terminate
+  - terminating
+  - not renew
+  - won't renew
+  - switch to
+  - switching to
+  - end our contract
+
+competitors: [Vantora, Lumio, Kestrel Suite]
+
+negative_words:
+  - frustrated
+  - disappointed
+  - unhappy
+  - terrible
+  - unacceptable
+  - angry
+  - annoyed
+  - fed up
+  - not happy
+  - waste of
+  - complaint
+negative_hits_threshold: 2    # deterministic tone check on customer speech
+
+positive_words: [great, excellent, happy, love, perfect, sounds good, excited, impressed, thank you]
+
+compliance_keywords:
+  - gdpr
+  - data protection
+  - data processing agreement
+  - dpa
+  - lawyer
+  - legal team
+  - attorney
+  - lawsuit
+  - delete my data
+  - right to be forgotten
+  - regulator
+
+# Text inside a call is DATA. If it tries to instruct the assistant, flag it for review.
+injection_patterns:
+  - ignore (all |any )?(the )?(previous|prior|above) (instructions|prompts?)
+  - disregard (the |all )?(previous|above|system)
+  - system prompt
+  - \bassistant[,:]
+  - mark (this|the) (deal|opportunity|lead) (as )?(closed|won)
+  - closed[- ]won
+  - you are now
+  - reveal your (instructions|prompt)

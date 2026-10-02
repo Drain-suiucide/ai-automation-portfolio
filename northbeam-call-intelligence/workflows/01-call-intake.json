@@ -1,0 +1,173 @@
+{
+  "name": "01 Call intake",
+  "nodes": [
+    {
+      "id": "n1",
+      "name": "Recording arrives",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        240,
+        300
+      ],
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "call-intake",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "webhookId": "call-intake"
+    },
+    {
+      "id": "n2",
+      "name": "Register and process call",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        480,
+        300
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "http://call-intelligence:8030/v1/calls",
+        "options": {
+          "timeout": 120000
+        },
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "external_id",
+              "value": "={{ $json.body.external_id }}"
+            },
+            {
+              "name": "channel",
+              "value": "={{ $json.body.channel }}"
+            },
+            {
+              "name": "agent_id",
+              "value": "={{ $json.body.agent_id }}"
+            },
+            {
+              "name": "customer_company",
+              "value": "={{ $json.body.customer_company }}"
+            },
+            {
+              "name": "recorded_at",
+              "value": "={{ $json.body.recorded_at }}"
+            },
+            {
+              "name": "audio_key",
+              "value": "={{ $json.body.audio_key }}"
+            },
+            {
+              "name": "consent_recorded",
+              "value": "={{ $json.body.consent_recorded ?? '' }}"
+            }
+          ]
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 2000
+    },
+    {
+      "id": "n3",
+      "name": "Needs a person?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        720,
+        300
+      ],
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.status }}",
+              "operation": "equal",
+              "value2": "pending_review"
+            },
+            {
+              "value1": "={{ $json.status }}",
+              "operation": "equal",
+              "value2": "needs_manual_review"
+            }
+          ]
+        },
+        "combineOperation": "any"
+      }
+    },
+    {
+      "id": "n4",
+      "name": "Notify manager (connect Slack or Telegram here)",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        960,
+        220
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "n5",
+      "name": "Nothing to review",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        960,
+        400
+      ],
+      "parameters": {}
+    }
+  ],
+  "connections": {
+    "Recording arrives": {
+      "main": [
+        [
+          {
+            "node": "Register and process call",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Register and process call": {
+      "main": [
+        [
+          {
+            "node": "Needs a person?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Needs a person?": {
+      "main": [
+        [
+          {
+            "node": "Notify manager (connect Slack or Telegram here)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Nothing to review",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {},
+  "tags": []
+}

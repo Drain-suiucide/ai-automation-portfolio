@@ -1,0 +1,69 @@
+{
+ "language": "en",
+ "segments": [
+  {
+   "id": "seg-1",
+   "start": 0.0,
+   "end": 7.1,
+   "speaker": "agent",
+   "text": "Hello, this is Priya Nair from Northbeam support. Just letting you know this call is being recorded.",
+   "confidence": 0.92
+  },
+  {
+   "id": "seg-2",
+   "start": 7.7,
+   "end": 15.3,
+   "speaker": "customer",
+   "text": "Honestly we are frustrated. The reports have been broken for three weeks and support keeps closing our tickets.",
+   "confidence": 0.92
+  },
+  {
+   "id": "seg-3",
+   "start": 15.9,
+   "end": 22.2,
+   "speaker": "agent",
+   "text": "I am sorry to hear that. Can you tell me what changed three weeks ago?",
+   "confidence": 0.92
+  },
+  {
+   "id": "seg-4",
+   "start": 22.8,
+   "end": 28.7,
+   "speaker": "customer",
+   "text": "Nothing on our side. This is unacceptable for the amount we pay every month.",
+   "confidence": 0.92
+  },
+  {
+   "id": "seg-5",
+   "start": 29.3,
+   "end": 35.2,
+   "speaker": "customer",
+   "text": "We are seriously thinking about cancelling and switching to Vantora before the renewal date.",
+   "confidence": 0.92
+  },
+  {
+   "id": "seg-6",
+   "start": 35.8,
+   "end": 42.1,
+   "speaker": "agent",
+   "text": "I understand. I'll escalate this to our support lead today and follow up by Thursday.",
+   "confidence": 0.92
+  },
+  {
+   "id": "seg-7",
+   "start": 42.7,
+   "end": 48.6,
+   "speaker": "customer",
+   "text": "Fine. If the reports are not fixed by then we will end our contract.",
+   "confidence": 0.92
+  },
+  {
+   "id": "seg-8",
+   "start": 49.2,
+   "end": 53.4,
+   "speaker": "agent",
+   "text": "Understood. I will send you a written incident summary tomorrow.",
+   "confidence": 0.92
+  }
+ ]
+}

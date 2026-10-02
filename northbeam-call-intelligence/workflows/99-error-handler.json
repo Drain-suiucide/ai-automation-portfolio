@@ -1,0 +1,70 @@
+{
+  "name": "99 Error handler",
+  "nodes": [
+    {
+      "id": "e1",
+      "name": "Any workflow failed",
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [
+        240,
+        300
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "e2",
+      "name": "Normalize error",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        480,
+        300
+      ],
+      "parameters": {
+        "jsCode": "const e = $input.first().json;\nreturn [{ json: { workflow: e.workflow?.name, node: e.execution?.lastNodeExecuted,\n  message: e.execution?.error?.message, at: new Date().toISOString(), retryable: true } }];"
+      }
+    },
+    {
+      "id": "e3",
+      "name": "Alert on-call (connect Slack or Telegram here)",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        720,
+        300
+      ],
+      "parameters": {}
+    }
+  ],
+  "connections": {
+    "Any workflow failed": {
+      "main": [
+        [
+          {
+            "node": "Normalize error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize error": {
+      "main": [
+        [
+          {
+            "node": "Alert on-call (connect Slack or Telegram here)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {},
+  "tags": []
+}
