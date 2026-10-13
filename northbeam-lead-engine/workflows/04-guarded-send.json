@@ -1,0 +1,28 @@
+{
+  "name": "04-guarded-send",
+  "nodes": [
+    {
+      "parameters": { "rule": { "interval": [{ "field": "minutes", "minutesInterval": 5 }] } },
+      "id": "cron-4",
+      "name": "Cron",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://service:8040/v1/send/batch"
+      },
+      "id": "send",
+      "name": "Guarded Send Batch",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [260, 0]
+    }
+  ],
+  "connections": {
+    "Cron": { "main": [[{ "node": "Guarded Send Batch", "type": "main", "index": 0 }]] }
+  },
+  "meta": { "templateCredsSetupCompleted": false }
+}

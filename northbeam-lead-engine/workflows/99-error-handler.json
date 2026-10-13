@@ -1,0 +1,27 @@
+{
+  "name": "99-error-handler",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "err",
+      "name": "Error Trigger",
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const e = $input.first().json; return [{ json: { normalized: true, message: e.message || 'error', retryable: true } }];"
+      },
+      "id": "norm",
+      "name": "Normalize Error",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [240, 0]
+    }
+  ],
+  "connections": {
+    "Error Trigger": { "main": [[{ "node": "Normalize Error", "type": "main", "index": 0 }]] }
+  },
+  "meta": { "templateCredsSetupCompleted": false }
+}

@@ -1,0 +1,58 @@
+{
+  "name": "02-enrich-and-score",
+  "nodes": [
+    {
+      "parameters": { "rule": { "interval": [{ "field": "minutes", "minutesInterval": 15 }] } },
+      "id": "sched-1",
+      "name": "Every 15m",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "http://service:8040/v1/leads"
+      },
+      "id": "http-list",
+      "name": "List Leads",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [240, 0]
+    },
+    {
+      "parameters": { "batchSize": 5, "options": {} },
+      "id": "split-1",
+      "name": "SplitInBatches",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [480, 0]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=http://service:8040/v1/pipeline/enrich-score/{{ $json.id }}"
+      },
+      "id": "http-enrich",
+      "name": "Enrich+Score",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [720, 0]
+    },
+    {
+      "parameters": { "amount": 1 },
+      "id": "wait-1",
+      "name": "Rate Limit Wait",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [960, 0]
+    }
+  ],
+  "connections": {
+    "Every 15m": { "main": [[{ "node": "List Leads", "type": "main", "index": 0 }]] },
+    "List Leads": { "main": [[{ "node": "SplitInBatches", "type": "main", "index": 0 }]] },
+    "SplitInBatches": { "main": [[{ "node": "Enrich+Score", "type": "main", "index": 0 }]] },
+    "Enrich+Score": { "main": [[{ "node": "Rate Limit Wait", "type": "main", "index": 0 }]] }
+  },
+  "meta": { "templateCredsSetupCompleted": false }
+}

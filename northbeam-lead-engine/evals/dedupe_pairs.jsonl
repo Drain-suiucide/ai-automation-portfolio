@@ -1,0 +1,40 @@
+{"a_company": "Acme Retail Ltd", "a_domain": "acme-retail.com", "a_email": "anna@acme-retail.com", "b_company": "Acme Retail", "b_domain": "www.acme-retail.com", "b_email": "anna@acme-retail.com", "duplicate": true}
+{"a_company": "BrightSaaS Inc", "a_domain": "brightsaas.com", "a_email": "ben@brightsaas.com", "b_company": "Bright SaaS", "b_domain": "brightsaas.com", "b_email": "ben@brightsaas.com", "duplicate": true}
+{"a_company": "FleetLogix GmbH", "a_domain": "fleetlogix.com", "a_email": "c@fleetlogix.com", "b_company": "Fleet Logix", "b_domain": "fleetlogix.com", "b_email": "c@fleetlogix.com", "duplicate": true}
+{"a_company": "PayNorth", "a_domain": "paynorth.com", "a_email": "d@paynorth.com", "b_company": "Pay North BV", "b_domain": "paynorth.com", "b_email": "d@paynorth.com", "duplicate": true}
+{"a_company": "Helix MFG", "a_domain": "helixmfg.com", "a_email": "e@helixmfg.com", "b_company": "Helix Manufacturing", "b_domain": "helixmfg.com", "b_email": "e@helixmfg.com", "duplicate": true}
+{"a_company": "Acme Retail", "a_domain": "acme-retail.com", "a_email": "a@acme-retail.com", "b_company": "BrightSaaS", "b_domain": "brightsaas.com", "b_email": "b@brightsaas.com", "duplicate": false}
+{"a_company": "Nordic Packs", "a_domain": "nordicpacks.com", "a_email": "n@nordicpacks.com", "b_company": "DataBridge", "b_domain": "databridge.com", "b_email": "d@databridge.com", "duplicate": false}
+{"a_company": "Orbit Tools", "a_domain": "orbit-tools.com", "a_email": "o@orbit-tools.com", "b_company": "SkyShelf", "b_domain": "skyshelf.com", "b_email": "s@skyshelf.com", "duplicate": false}
+{"a_company": "CloudNest", "a_domain": "cloudnest.io", "a_email": "c@cloudnest.io", "b_company": "Cloud Nest Inc", "b_domain": "cloudnest.io", "b_email": "c@cloudnest.io", "duplicate": true}
+{"a_company": "NovaPay", "a_domain": "novapay.io", "a_email": "n@novapay.io", "b_company": "Nova Pay", "b_domain": "novapay.io", "b_email": "n@novapay.io", "duplicate": true}
+{"a_company": "QuickHaul", "a_domain": "quickhaul.com", "a_email": "q@quickhaul.com", "b_company": "Quick Haul Ltd", "b_domain": "quickhaul.com", "b_email": "q@quickhaul.com", "duplicate": true}
+{"a_company": "GreenMill", "a_domain": "greenmill.com", "a_email": "g@greenmill.com", "b_company": "Green Mill AG", "b_domain": "greenmill.com", "b_email": "g@greenmill.com", "duplicate": true}
+{"a_company": "Silk & Stone", "a_domain": "silkstone.com", "a_email": "s@silkstone.com", "b_company": "Silk and Stone", "b_domain": "silkstone.com", "b_email": "s@silkstone.com", "duplicate": true}
+{"a_company": "CarePulse", "a_domain": "carepulse.com", "a_email": "c@carepulse.com", "b_company": "PulseCare", "b_domain": "pulsecare.com", "b_email": "p@pulsecare.com", "duplicate": false}
+{"a_company": "EvilCorp", "a_domain": "evilcorp.com", "a_email": "e@evilcorp.com", "b_company": "BlockedCorp", "b_domain": "blockedcorp.example", "b_email": "b@blockedcorp.example", "duplicate": false}
+{"a_company": "DataBridge", "a_domain": "databridge.com", "a_email": "d@databridge.com", "b_company": "Data Bridge LLC", "b_domain": "databridge.com", "b_email": "d@databridge.com", "duplicate": true}
+{"a_company": "PayNorth", "a_domain": "paynorth.com", "a_email": "x@paynorth.com", "b_company": "NovaPay", "b_domain": "novapay.io", "b_email": "y@novapay.io", "duplicate": false}
+{"a_company": "FleetLogix", "a_domain": "fleetlogix.com", "a_email": "f1@fleetlogix.com", "b_company": "QuickHaul", "b_domain": "quickhaul.com", "b_email": "q1@quickhaul.com", "duplicate": false}
+{"a_company": "BrightSaaS", "a_domain": "brightsaas.com", "a_email": "info@brightsaas.com", "b_company": "BrightSaaS Inc", "b_domain": "brightsaas.com", "b_email": "info@brightsaas.com", "duplicate": true}
+{"a_company": "Acme Retail Ltd", "a_domain": "acme-retail.com", "a_email": "z@acme-retail.com", "b_company": "Acme Retail GmbH", "b_domain": "acme-retail.com", "b_email": "z@acme-retail.com", "duplicate": true}
+{"a_company": "Helix MFG", "a_domain": "helixmfg.com", "a_email": "h@helixmfg.com", "b_company": "GreenMill", "b_domain": "greenmill.com", "b_email": "g2@greenmill.com", "duplicate": false}
+{"a_company": "Nordic Packs AB", "a_domain": "nordicpacks.com", "a_email": "np@nordicpacks.com", "b_company": "NordicPacks", "b_domain": "nordicpacks.com", "b_email": "np@nordicpacks.com", "duplicate": true}
+{"a_company": "SkyShelf", "a_domain": "skyshelf.com", "a_email": "ss@skyshelf.com", "b_company": "Sky Shelf", "b_domain": "skyshelf.com", "b_email": "ss@skyshelf.com", "duplicate": true}
+{"a_company": "Orbit Tools", "a_domain": "orbit-tools.com", "a_email": "ot@orbit-tools.com", "b_company": "OrbitTools", "b_domain": "orbit-tools.com", "b_email": "ot@orbit-tools.com", "duplicate": true}
+{"a_company": "CloudNest", "a_domain": "cloudnest.io", "a_email": "cn@cloudnest.io", "b_company": "DataBridge", "b_domain": "databridge.com", "b_email": "db@databridge.com", "duplicate": false}
+{"a_company": "PulseCare", "a_domain": "pulsecare.com", "a_email": "pc@pulsecare.com", "b_company": "Pulse Care Inc", "b_domain": "pulsecare.com", "b_email": "pc@pulsecare.com", "duplicate": true}
+{"a_company": "Silk & Stone", "a_domain": "silkstone.com", "a_email": "sk@silkstone.com", "b_company": "SkyShelf", "b_domain": "skyshelf.com", "b_email": "sy@skyshelf.com", "duplicate": false}
+{"a_company": "BlockedCorp", "a_domain": "blockedcorp.example", "a_email": "bc@blockedcorp.example", "b_company": "Blocked Corp", "b_domain": "blockedcorp.example", "b_email": "bc@blockedcorp.example", "duplicate": true}
+{"a_company": "EvilCorp", "a_domain": "evilcorp.com", "a_email": "ev@evilcorp.com", "b_company": "Evil Corp Ltd", "b_domain": "evilcorp.com", "b_email": "ev@evilcorp.com", "duplicate": true}
+{"a_company": "NovaPay", "a_domain": "novapay.io", "a_email": "npay@novapay.io", "b_company": "PayNorth", "b_domain": "paynorth.com", "b_email": "pn@paynorth.com", "duplicate": false}
+{"a_company": "QuickHaul Ltd", "a_domain": "quickhaul.com", "a_email": "qh@quickhaul.com", "b_company": "QuickHaul", "b_domain": "www.quickhaul.com", "b_email": "qh@quickhaul.com", "duplicate": true}
+{"a_company": "GreenMill AG", "a_domain": "greenmill.com", "a_email": "gm@greenmill.com", "b_company": "Helix MFG", "b_domain": "helixmfg.com", "b_email": "hx@helixmfg.com", "duplicate": false}
+{"a_company": "CarePulse", "a_domain": "carepulse.com", "a_email": "cp@carepulse.com", "b_company": "Care Pulse Ltd", "b_domain": "carepulse.com", "b_email": "cp@carepulse.com", "duplicate": true}
+{"a_company": "FleetLogix GmbH", "a_domain": "fleetlogix.com", "a_email": "fl@fleetlogix.com", "b_company": "Fleetlogix", "b_domain": "fleetlogix.de", "b_email": "fl2@fleetlogix.de", "duplicate": false}
+{"a_company": "BrightSaaS Inc", "a_domain": "brightsaas.com", "a_email": "bs@brightsaas.com", "b_company": "CloudNest", "b_domain": "cloudnest.io", "b_email": "cn2@cloudnest.io", "duplicate": false}
+{"a_company": "Acme Retail", "a_domain": "acme-retail.com", "a_email": "ar@acme-retail.com", "b_company": "Nordic Packs", "b_domain": "nordicpacks.com", "b_email": "np2@nordicpacks.com", "duplicate": false}
+{"a_company": "Data Bridge LLC", "a_domain": "databridge.com", "a_email": "dbl@databridge.com", "b_company": "DataBridge", "b_domain": "www.databridge.com", "b_email": "dbl@databridge.com", "duplicate": true}
+{"a_company": "Orbit Tools Co", "a_domain": "orbit-tools.com", "a_email": "otc@orbit-tools.com", "b_company": "Orbit Tools", "b_domain": "orbit-tools.com", "b_email": "otc@orbit-tools.com", "duplicate": true}
+{"a_company": "Sky Shelf Inc", "a_domain": "skyshelf.com", "a_email": "ssi@skyshelf.com", "b_company": "SkyShelf", "b_domain": "skyshelf.com", "b_email": "ssi@skyshelf.com", "duplicate": true}
+{"a_company": "Pay North BV", "a_domain": "paynorth.com", "a_email": "pnv@paynorth.com", "b_company": "PayNorth", "b_domain": "paynorth.com", "b_email": "pnv@paynorth.com", "duplicate": true}

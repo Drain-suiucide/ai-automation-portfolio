@@ -1,0 +1,40 @@
+{
+  "name": "03-draft-and-approval",
+  "nodes": [
+    {
+      "parameters": { "rule": { "interval": [{ "field": "minutes", "minutesInterval": 10 }] } },
+      "id": "sched-3",
+      "name": "Schedule",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://service:8040/v1/pipeline/run-all"
+      },
+      "id": "run-all",
+      "name": "Draft Pipeline",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [240, 0]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "http://service:8040/v1/approval/queue"
+      },
+      "id": "queue",
+      "name": "Approval Queue",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [480, 0]
+    }
+  ],
+  "connections": {
+    "Schedule": { "main": [[{ "node": "Draft Pipeline", "type": "main", "index": 0 }]] },
+    "Draft Pipeline": { "main": [[{ "node": "Approval Queue", "type": "main", "index": 0 }]] }
+  },
+  "meta": { "templateCredsSetupCompleted": false }
+}

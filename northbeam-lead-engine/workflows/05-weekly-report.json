@@ -1,0 +1,28 @@
+{
+  "name": "05-weekly-report",
+  "nodes": [
+    {
+      "parameters": { "rule": { "interval": [{ "field": "hours", "hoursInterval": 168 }] } },
+      "id": "weekly",
+      "name": "Weekly",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "http://service:8040/v1/reports/weekly"
+      },
+      "id": "report",
+      "name": "Weekly Report",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [260, 0]
+    }
+  ],
+  "connections": {
+    "Weekly": { "main": [[{ "node": "Weekly Report", "type": "main", "index": 0 }]] }
+  },
+  "meta": { "templateCredsSetupCompleted": false }
+}

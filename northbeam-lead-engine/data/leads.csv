@@ -1,0 +1,201 @@
+company,domain,contact_name,email,title,country,source,collected_at,lawful_basis
+Acme Retail Ltd ,ACME-RETAIL.COM,Anna Nguyen,anna.nguyen@acme-retail.com,Head of Growth,US,csv,2026-09-01T10:00:00Z,legitimate_interest
+Acme Retail,www.acme-retail.com,Ben Patel,ben.patel@acme-retail.com,VP Sales,US,csv,2026-09-01T10:00:00Z,consent
+BrightSaaS Inc,brightsaas.com,Carla Schmidt,carla.schmidt@brightsaas.com,Revenue Ops,US,csv,2026-09-01T10:00:00Z,unknown
+Bright SaaS,brightsaas.com,Diego Rossi,diego.rossi@brightsaas.com,Founder,US,csv,2026-09-01T10:00:00Z,legitimate_interest
+FleetLogix GmbH,fleetlogix.com,Elena Kim,elena.kim@fleetlogix.com,SDR Manager,DE,csv,2026-09-01T10:00:00Z,legitimate_interest
+PayNorth,paynorth.com,Farah Garcia,farah.garcia@paynorth.com,COO,NL,csv,2026-09-01T10:00:00Z,unknown
+Helix MFG,helixmfg.com,Gus Brown,gus.brown@helixmfg.com,Head of Growth,US,csv,2026-09-01T10:00:00Z,legitimate_interest
+CarePulse,carepulse.com,Hana Silva,hana.silva@carepulse.com,VP Sales,GB,csv,2026-09-01T10:00:00Z,consent
+EvilCorp,evilcorp.com,Ivan Cohen,ivan.cohen@evilcorp.com,Revenue Ops,US,csv,2026-09-01T10:00:00Z,unknown
+BlockedCorp,blockedcorp.example,Jules Walsh,jules.walsh@blockedcorp.example,Founder,XX,csv,2026-09-01T10:00:00Z,legitimate_interest
+Nordic Packs AB,nordicpacks.com,Anna Nguyen,anna.nguyen@nordicpacks.com,SDR Manager,SE,csv,2026-09-01T10:00:00Z,consent
+DataBridge,databridge.com,Ben Patel,ben.patel@databridge.com,COO,US,csv,2026-09-01T10:00:00Z,unknown
+Orbit Tools,orbit-tools.com,Carla Schmidt,carla.schmidt@orbit-tools.com,Head of Growth,CA,csv,2026-09-01T10:00:00Z,legitimate_interest
+Silk & Stone,silkstone.com,Diego Rossi,diego.rossi@silkstone.com,VP Sales,FR,csv,2026-09-01T10:00:00Z,consent
+QuickHaul,quickhaul.com,Elena Kim,elena.kim@quickhaul.com,Revenue Ops,GB,csv,2026-09-01T10:00:00Z,unknown
+NovaPay,novapay.io,Farah Garcia,farah.garcia@novapay.io,Founder,US,csv,2026-09-01T10:00:00Z,legitimate_interest
+GreenMill,greenmill.com,Gus Brown,gus.brown@greenmill.com,SDR Manager,DE,csv,2026-09-01T10:00:00Z,legitimate_interest
+PulseCare,PULSECARE.COM,Hana Silva,hana.silva@pulsecare.com,COO,US,csv,2026-09-01T10:00:00Z,unknown
+SkyShelf,skyshelf.com,Ivan Cohen,ivan.cohen@skyshelf.com,Head of Growth,US,csv,2026-09-01T10:00:00Z,legitimate_interest
+CloudNest,cloudnest.io,Jules Walsh,jules.walsh@cloudnest.io,VP Sales,US,csv,2026-09-01T10:00:00Z,consent
+Acme Retail Ltd,acme-retail.com,Anna Nguyen,anna.nguyen@acme-retail.com,Revenue Ops,US,csv,2026-09-01T10:00:00Z,unknown
+Acme Retail,www.acme-retail.com,Ben Patel,ben.patel@acme-retail.com,Founder,US,csv,2026-09-01T10:00:00Z,legitimate_interest
+BrightSaaS Inc,brightsaas.com,Carla Schmidt,info@brightsaas.com,SDR Manager,US,csv,2026-09-01T10:00:00Z,consent
+Bright SaaS ,brightsaas.com,Diego Rossi,diego.rossi@brightsaas.com,COO,US,csv,2026-09-01T10:00:00Z,unknown
+FleetLogix GmbH,fleetlogix.com,Elena Kim,elena.kim@fleetlogix.com,Head of Growth,DE,csv,2026-09-01T10:00:00Z,legitimate_interest
+PayNorth,paynorth.com,Farah Garcia,farah.garcia@paynorth.com,VP Sales,NL,csv,2026-09-01T10:00:00Z,consent
+Helix MFG,helixmfg.com,Gus Brown,gus.brown@helixmfg.com,Revenue Ops,US,csv,2026-09-01T10:00:00Z,unknown
+CarePulse,carepulse.com,Hana Silva,hana.silva@carepulse.com,Founder,GB,csv,2026-09-01T10:00:00Z,legitimate_interest
+EvilCorp,evilcorp.com,Ivan Cohen,ivan.cohen@evilcorp.com,SDR Manager,US,csv,2026-09-01T10:00:00Z,consent
+BlockedCorp,blockedcorp.example,Jules Walsh,jules.walsh@blockedcorp.example,COO,XX,csv,2026-09-01T10:00:00Z,unknown
+Nordic Packs AB,nordicpacks.com,Anna Nguyen,anna.nguyen@nordicpacks.com,Head of Growth,SE,csv,2026-09-01T10:00:00Z,legitimate_interest
+DataBridge,databridge.com,Ben Patel,ben.patel@databridge.com,VP Sales,US,csv,2026-09-01T10:00:00Z,consent
+Orbit Tools,orbit-tools.com,Carla Schmidt,carla.schmidt@orbit-tools.com,Revenue Ops,CA,csv,2026-09-01T10:00:00Z,unknown
+Silk & Stone,silkstone.com,Diego Rossi,info@silkstone.com,Founder,FR,csv,2026-09-01T10:00:00Z,legitimate_interest
+QuickHaul,QUICKHAUL.COM,Elena Kim,elena.kim@quickhaul.com,SDR Manager,GB,csv,2026-09-01T10:00:00Z,consent
+NovaPay,novapay.io,Farah Garcia,farah.garcia@novapay.io,COO,US,csv,2026-09-01T10:00:00Z,unknown
+GreenMill,greenmill.com,Gus Brown,gus.brown@greenmill.com,Head of Growth,DE,csv,2026-09-01T10:00:00Z,legitimate_interest
+PulseCare,pulsecare.com,Hana Silva,hana.silva@pulsecare.com,VP Sales,US,csv,2026-09-01T10:00:00Z,consent
+SkyShelf,skyshelf.com,Ivan Cohen,ivan.cohen@skyshelf.com,Revenue Ops,US,csv,2026-09-01T10:00:00Z,unknown
+CloudNest,cloudnest.io,Jules Walsh,jules.walsh@cloudnest.io,Founder,US,csv,2026-09-01T10:00:00Z,legitimate_interest
+Acme Retail Ltd,acme-retail.com,Anna Nguyen,anna.nguyen@acme-retail.com,SDR Manager,US,csv,2026-09-01T10:00:00Z,consent
+Acme Retail,www.acme-retail.com,Ben Patel,ben.patel@acme-retail.com,COO,US,csv,2026-09-01T10:00:00Z,unknown
+BrightSaaS Inc,brightsaas.com,Carla Schmidt,carla.schmidt@brightsaas.com,Head of Growth,US,csv,2026-09-01T10:00:00Z,legitimate_interest
+Bright SaaS,brightsaas.com,Diego Rossi,diego.rossi@brightsaas.com,VP Sales,US,csv,2026-09-01T10:00:00Z,consent
+FleetLogix GmbH,fleetlogix.com,Elena Kim,info@fleetlogix.com,Revenue Ops,DE,csv,2026-09-01T10:00:00Z,legitimate_interest
+PayNorth,paynorth.com,Farah Garcia,farah.garcia@paynorth.com,Founder,NL,csv,2026-09-01T10:00:00Z,legitimate_interest
+Helix MFG ,helixmfg.com,Gus Brown,gus.brown@helixmfg.com,SDR Manager,US,csv,2026-09-01T10:00:00Z,consent
+CarePulse,carepulse.com,Hana Silva,hana.silva@carepulse.com,COO,GB,csv,2026-09-01T10:00:00Z,unknown
+EvilCorp,evilcorp.com,Ivan Cohen,ivan.cohen@evilcorp.com,Head of Growth,US,csv,2026-09-01T10:00:00Z,legitimate_interest
+BlockedCorp,blockedcorp.example,Jules Walsh,jules.walsh@blockedcorp.example,VP Sales,XX,csv,2026-09-01T10:00:00Z,consent
+Nordic Packs AB,nordicpacks.com,Anna Nguyen,anna.nguyen@nordicpacks.com,Revenue Ops,SE,csv,2026-09-01T10:00:00Z,unknown
+DataBridge,DATABRIDGE.COM,Ben Patel,ben.patel@databridge.com,Founder,US,csv,2026-09-01T10:00:00Z,legitimate_interest
+Orbit Tools,orbit-tools.com,Carla Schmidt,carla.schmidt@orbit-tools.com,SDR Manager,CA,csv,2026-09-01T10:00:00Z,consent
+Silk & Stone,silkstone.com,Diego Rossi,diego.rossi@silkstone.com,COO,FR,csv,2026-09-01T10:00:00Z,unknown
+QuickHaul,quickhaul.com,Elena Kim,elena.kim@quickhaul.com,Head of Growth,GB,csv,2026-09-01T10:00:00Z,legitimate_interest
+NovaPay,novapay.io,Farah Garcia,info@novapay.io,VP Sales,US,csv,2026-09-01T10:00:00Z,consent
+GreenMill,greenmill.com,Gus Brown,gus.brown@greenmill.com,Revenue Ops,DE,csv,2026-09-01T10:00:00Z,legitimate_interest
+PulseCare,pulsecare.com,Hana Silva,hana.silva@pulsecare.com,Founder,US,csv,2026-09-01T10:00:00Z,legitimate_interest
+SkyShelf,skyshelf.com,Ivan Cohen,ivan.cohen@skyshelf.com,SDR Manager,US,csv,2026-09-01T10:00:00Z,consent
+CloudNest,cloudnest.io,Jules Walsh,jules.walsh@cloudnest.io,COO,US,csv,2026-09-01T10:00:00Z,unknown
+Acme Retail Ltd,acme-retail.com,Anna Nguyen,anna.nguyen@acme-retail.com,Head of Growth,US,csv,2026-09-01T10:00:00Z,legitimate_interest
+Acme Retail,www.acme-retail.com,Ben Patel,ben.patel@acme-retail.com,VP Sales,US,csv,2026-09-01T10:00:00Z,consent
+BrightSaaS Inc,brightsaas.com,Carla Schmidt,carla.schmidt@brightsaas.com,Revenue Ops,US,csv,2026-09-01T10:00:00Z,unknown
+Bright SaaS,brightsaas.com,Diego Rossi,diego.rossi@brightsaas.com,Founder,US,csv,2026-09-01T10:00:00Z,legitimate_interest
+FleetLogix GmbH,fleetlogix.com,Elena Kim,elena.kim@fleetlogix.com,SDR Manager,DE,csv,2026-09-01T10:00:00Z,legitimate_interest
+PayNorth,paynorth.com,Farah Garcia,farah.garcia@paynorth.com,COO,NL,csv,2026-09-01T10:00:00Z,unknown
+Helix MFG,helixmfg.com,Gus Brown,info@helixmfg.com,Head of Growth,US,csv,2026-09-01T10:00:00Z,legitimate_interest
+CarePulse,carepulse.com,Hana Silva,hana.silva@carepulse.com,VP Sales,GB,csv,2026-09-01T10:00:00Z,consent
+EvilCorp,EVILCORP.COM,Ivan Cohen,ivan.cohen@evilcorp.com,Revenue Ops,US,csv,2026-09-01T10:00:00Z,unknown
+BlockedCorp ,blockedcorp.example,Jules Walsh,jules.walsh@blockedcorp.example,Founder,XX,csv,2026-09-01T10:00:00Z,legitimate_interest
+Nordic Packs AB,nordicpacks.com,Anna Nguyen,anna.nguyen@nordicpacks.com,SDR Manager,SE,csv,2026-09-01T10:00:00Z,consent
+DataBridge,databridge.com,Ben Patel,ben.patel@databridge.com,COO,US,csv,2026-09-01T10:00:00Z,unknown
+Orbit Tools,orbit-tools.com,Carla Schmidt,carla.schmidt@orbit-tools.com,Head of Growth,CA,csv,2026-09-01T10:00:00Z,legitimate_interest
+Silk & Stone,silkstone.com,Diego Rossi,diego.rossi@silkstone.com,VP Sales,FR,csv,2026-09-01T10:00:00Z,consent
+QuickHaul,quickhaul.com,Elena Kim,elena.kim@quickhaul.com,Revenue Ops,GB,csv,2026-09-01T10:00:00Z,unknown
+NovaPay,novapay.io,Farah Garcia,farah.garcia@novapay.io,Founder,US,csv,2026-09-01T10:00:00Z,legitimate_interest
+GreenMill,greenmill.com,Gus Brown,gus.brown@greenmill.com,SDR Manager,DE,csv,2026-09-01T10:00:00Z,legitimate_interest
+PulseCare,pulsecare.com,Hana Silva,info@pulsecare.com,COO,US,csv,2026-09-01T10:00:00Z,unknown
+SkyShelf,skyshelf.com,Ivan Cohen,ivan.cohen@skyshelf.com,Head of Growth,US,csv,2026-09-01T10:00:00Z,legitimate_interest
+CloudNest,cloudnest.io,Jules Walsh,jules.walsh@cloudnest.io,VP Sales,US,csv,2026-09-01T10:00:00Z,consent
+Acme Retail Ltd,acme-retail.com,Anna Nguyen,anna.nguyen@acme-retail.com,Revenue Ops,US,csv,2026-09-01T10:00:00Z,unknown
+Acme Retail,www.acme-retail.com,Ben Patel,ben.patel@acme-retail.com,Founder,US,csv,2026-09-01T10:00:00Z,legitimate_interest
+BrightSaaS Inc,brightsaas.com,Carla Schmidt,carla.schmidt@brightsaas.com,SDR Manager,US,csv,2026-09-01T10:00:00Z,consent
+Bright SaaS,brightsaas.com,Diego Rossi,diego.rossi@brightsaas.com,COO,US,csv,2026-09-01T10:00:00Z,unknown
+FleetLogix GmbH,fleetlogix.com,Elena Kim,elena.kim@fleetlogix.com,Head of Growth,DE,csv,2026-09-01T10:00:00Z,legitimate_interest
+PayNorth,PAYNORTH.COM,Farah Garcia,farah.garcia@paynorth.com,VP Sales,NL,csv,2026-09-01T10:00:00Z,consent
+Helix MFG,helixmfg.com,Gus Brown,gus.brown@helixmfg.com,Revenue Ops,US,csv,2026-09-01T10:00:00Z,unknown
+CarePulse,carepulse.com,Hana Silva,hana.silva@carepulse.com,Founder,GB,csv,2026-09-01T10:00:00Z,legitimate_interest
+EvilCorp,evilcorp.com,Ivan Cohen,info@evilcorp.com,SDR Manager,US,csv,2026-09-01T10:00:00Z,consent
+BlockedCorp,blockedcorp.example,Jules Walsh,jules.walsh@blockedcorp.example,COO,XX,csv,2026-09-01T10:00:00Z,unknown
+Nordic Packs AB,nordicpacks.com,Anna Nguyen,anna.nguyen@nordicpacks.com,Head of Growth,SE,csv,2026-09-01T10:00:00Z,legitimate_interest
+DataBridge,databridge.com,Ben Patel,ben.patel@databridge.com,VP Sales,US,csv,2026-09-01T10:00:00Z,consent
+Orbit Tools ,orbit-tools.com,Carla Schmidt,carla.schmidt@orbit-tools.com,Revenue Ops,CA,csv,2026-09-01T10:00:00Z,unknown
+Silk & Stone,silkstone.com,Diego Rossi,diego.rossi@silkstone.com,Founder,FR,csv,2026-09-01T10:00:00Z,legitimate_interest
+QuickHaul,quickhaul.com,Elena Kim,elena.kim@quickhaul.com,SDR Manager,GB,csv,2026-09-01T10:00:00Z,consent
+NovaPay,novapay.io,Farah Garcia,farah.garcia@novapay.io,COO,US,csv,2026-09-01T10:00:00Z,unknown
+GreenMill,greenmill.com,Gus Brown,gus.brown@greenmill.com,Head of Growth,DE,csv,2026-09-01T10:00:00Z,legitimate_interest
+PulseCare,pulsecare.com,Hana Silva,hana.silva@pulsecare.com,VP Sales,US,csv,2026-09-01T10:00:00Z,consent
+SkyShelf,skyshelf.com,Ivan Cohen,ivan.cohen@skyshelf.com,Revenue Ops,US,csv,2026-09-01T10:00:00Z,unknown
+CloudNest,cloudnest.io,Jules Walsh,info@cloudnest.io,Founder,US,csv,2026-09-01T10:00:00Z,legitimate_interest
+Acme Retail Ltd,acme-retail.com,Anna Nguyen,anna.nguyen@acme-retail.com,SDR Manager,US,csv,2026-09-01T10:00:00Z,consent
+Acme Retail,www.acme-retail.com,Ben Patel,ben.patel@acme-retail.com,COO,US,csv,2026-09-01T10:00:00Z,unknown
+BrightSaaS Inc,BRIGHTSAAS.COM,Carla Schmidt,carla.schmidt@brightsaas.com,Head of Growth,US,csv,2026-09-01T10:00:00Z,legitimate_interest
+Bright SaaS,brightsaas.com,Diego Rossi,diego.rossi@brightsaas.com,VP Sales,US,csv,2026-09-01T10:00:00Z,consent
+FleetLogix GmbH,fleetlogix.com,Elena Kim,elena.kim@fleetlogix.com,Revenue Ops,DE,csv,2026-09-01T10:00:00Z,legitimate_interest
+PayNorth,paynorth.com,Farah Garcia,farah.garcia@paynorth.com,Founder,NL,csv,2026-09-01T10:00:00Z,legitimate_interest
+Helix MFG,helixmfg.com,Gus Brown,gus.brown@helixmfg.com,SDR Manager,US,csv,2026-09-01T10:00:00Z,consent
+CarePulse,carepulse.com,Hana Silva,hana.silva@carepulse.com,COO,GB,csv,2026-09-01T10:00:00Z,unknown
+EvilCorp,evilcorp.com,Ivan Cohen,ivan.cohen@evilcorp.com,Head of Growth,US,csv,2026-09-01T10:00:00Z,legitimate_interest
+BlockedCorp,blockedcorp.example,Jules Walsh,jules.walsh@blockedcorp.example,VP Sales,XX,csv,2026-09-01T10:00:00Z,consent
+Nordic Packs AB,nordicpacks.com,Anna Nguyen,info@nordicpacks.com,Revenue Ops,SE,csv,2026-09-01T10:00:00Z,unknown
+DataBridge,databridge.com,Ben Patel,ben.patel@databridge.com,Founder,US,csv,2026-09-01T10:00:00Z,legitimate_interest
+Orbit Tools,orbit-tools.com,Carla Schmidt,carla.schmidt@orbit-tools.com,SDR Manager,CA,csv,2026-09-01T10:00:00Z,consent
+Silk & Stone,silkstone.com,Diego Rossi,diego.rossi@silkstone.com,COO,FR,csv,2026-09-01T10:00:00Z,unknown
+QuickHaul,quickhaul.com,Elena Kim,elena.kim@quickhaul.com,Head of Growth,GB,csv,2026-09-01T10:00:00Z,legitimate_interest
+NovaPay ,novapay.io,Farah Garcia,farah.garcia@novapay.io,VP Sales,US,csv,2026-09-01T10:00:00Z,consent
+GreenMill,greenmill.com,Gus Brown,gus.brown@greenmill.com,Revenue Ops,DE,csv,2026-09-01T10:00:00Z,legitimate_interest
+PulseCare,pulsecare.com,Hana Silva,hana.silva@pulsecare.com,Founder,US,csv,2026-09-01T10:00:00Z,legitimate_interest
+SkyShelf,skyshelf.com,Ivan Cohen,ivan.cohen@skyshelf.com,SDR Manager,US,csv,2026-09-01T10:00:00Z,consent
+CloudNest,CLOUDNEST.IO,Jules Walsh,jules.walsh@cloudnest.io,COO,US,csv,2026-09-01T10:00:00Z,unknown
+Acme Retail Ltd,acme-retail.com,Anna Nguyen,anna.nguyen@acme-retail.com,Head of Growth,US,csv,2026-09-01T10:00:00Z,legitimate_interest
+Acme Retail,www.acme-retail.com,Ben Patel,info@acme-retail.com,VP Sales,US,csv,2026-09-01T10:00:00Z,consent
+BrightSaaS Inc,brightsaas.com,Carla Schmidt,carla.schmidt@brightsaas.com,Revenue Ops,US,csv,2026-09-01T10:00:00Z,unknown
+Bright SaaS,brightsaas.com,Diego Rossi,diego.rossi@brightsaas.com,Founder,US,csv,2026-09-01T10:00:00Z,legitimate_interest
+FleetLogix GmbH,fleetlogix.com,Elena Kim,elena.kim@fleetlogix.com,SDR Manager,DE,csv,2026-09-01T10:00:00Z,legitimate_interest
+PayNorth,paynorth.com,Farah Garcia,farah.garcia@paynorth.com,COO,NL,csv,2026-09-01T10:00:00Z,unknown
+Helix MFG,helixmfg.com,Gus Brown,gus.brown@helixmfg.com,Head of Growth,US,csv,2026-09-01T10:00:00Z,legitimate_interest
+CarePulse,carepulse.com,Hana Silva,hana.silva@carepulse.com,VP Sales,GB,csv,2026-09-01T10:00:00Z,consent
+EvilCorp,evilcorp.com,Ivan Cohen,ivan.cohen@evilcorp.com,Revenue Ops,US,csv,2026-09-01T10:00:00Z,unknown
+BlockedCorp,blockedcorp.example,Jules Walsh,jules.walsh@blockedcorp.example,Founder,XX,csv,2026-09-01T10:00:00Z,legitimate_interest
+Nordic Packs AB,nordicpacks.com,Anna Nguyen,anna.nguyen@nordicpacks.com,SDR Manager,SE,csv,2026-09-01T10:00:00Z,consent
+DataBridge,databridge.com,Ben Patel,ben.patel@databridge.com,COO,US,csv,2026-09-01T10:00:00Z,unknown
+Orbit Tools,orbit-tools.com,Carla Schmidt,info@orbit-tools.com,Head of Growth,CA,csv,2026-09-01T10:00:00Z,legitimate_interest
+Silk & Stone,silkstone.com,Diego Rossi,diego.rossi@silkstone.com,VP Sales,FR,csv,2026-09-01T10:00:00Z,consent
+QuickHaul,quickhaul.com,Elena Kim,elena.kim@quickhaul.com,Revenue Ops,GB,csv,2026-09-01T10:00:00Z,unknown
+NovaPay,novapay.io,Farah Garcia,farah.garcia@novapay.io,Founder,US,csv,2026-09-01T10:00:00Z,legitimate_interest
+GreenMill,GREENMILL.COM,Gus Brown,gus.brown@greenmill.com,SDR Manager,DE,csv,2026-09-01T10:00:00Z,legitimate_interest
+PulseCare,pulsecare.com,Hana Silva,hana.silva@pulsecare.com,COO,US,csv,2026-09-01T10:00:00Z,unknown
+SkyShelf ,skyshelf.com,Ivan Cohen,ivan.cohen@skyshelf.com,Head of Growth,US,csv,2026-09-01T10:00:00Z,legitimate_interest
+CloudNest,cloudnest.io,Jules Walsh,jules.walsh@cloudnest.io,VP Sales,US,csv,2026-09-01T10:00:00Z,consent
+Acme Retail Ltd,acme-retail.com,Anna Nguyen,anna.nguyen@acme-retail.com,Revenue Ops,US,csv,2026-09-01T10:00:00Z,unknown
+Acme Retail,www.acme-retail.com,Ben Patel,ben.patel@acme-retail.com,Founder,US,csv,2026-09-01T10:00:00Z,legitimate_interest
+BrightSaaS Inc,brightsaas.com,Carla Schmidt,carla.schmidt@brightsaas.com,SDR Manager,US,csv,2026-09-01T10:00:00Z,consent
+Bright SaaS,brightsaas.com,Diego Rossi,info@brightsaas.com,COO,US,csv,2026-09-01T10:00:00Z,unknown
+FleetLogix GmbH,fleetlogix.com,Elena Kim,elena.kim@fleetlogix.com,Head of Growth,DE,csv,2026-09-01T10:00:00Z,legitimate_interest
+PayNorth,paynorth.com,Farah Garcia,farah.garcia@paynorth.com,VP Sales,NL,csv,2026-09-01T10:00:00Z,consent
+Helix MFG,helixmfg.com,Gus Brown,gus.brown@helixmfg.com,Revenue Ops,US,csv,2026-09-01T10:00:00Z,unknown
+CarePulse,carepulse.com,Hana Silva,hana.silva@carepulse.com,Founder,GB,csv,2026-09-01T10:00:00Z,legitimate_interest
+EvilCorp,evilcorp.com,Ivan Cohen,ivan.cohen@evilcorp.com,SDR Manager,US,csv,2026-09-01T10:00:00Z,consent
+BlockedCorp,blockedcorp.example,Jules Walsh,jules.walsh@blockedcorp.example,COO,XX,csv,2026-09-01T10:00:00Z,unknown
+Nordic Packs AB,nordicpacks.com,Anna Nguyen,anna.nguyen@nordicpacks.com,Head of Growth,SE,csv,2026-09-01T10:00:00Z,legitimate_interest
+DataBridge,databridge.com,Ben Patel,ben.patel@databridge.com,VP Sales,US,csv,2026-09-01T10:00:00Z,consent
+Orbit Tools,orbit-tools.com,Carla Schmidt,carla.schmidt@orbit-tools.com,Revenue Ops,CA,csv,2026-09-01T10:00:00Z,unknown
+Silk & Stone,SILKSTONE.COM,Diego Rossi,diego.rossi@silkstone.com,Founder,FR,csv,2026-09-01T10:00:00Z,legitimate_interest
+QuickHaul,quickhaul.com,Elena Kim,info@quickhaul.com,SDR Manager,GB,csv,2026-09-01T10:00:00Z,consent
+NovaPay,novapay.io,Farah Garcia,farah.garcia@novapay.io,COO,US,csv,2026-09-01T10:00:00Z,unknown
+GreenMill,greenmill.com,Gus Brown,gus.brown@greenmill.com,Head of Growth,DE,csv,2026-09-01T10:00:00Z,legitimate_interest
+PulseCare,pulsecare.com,Hana Silva,hana.silva@pulsecare.com,VP Sales,US,csv,2026-09-01T10:00:00Z,consent
+SkyShelf,skyshelf.com,Ivan Cohen,ivan.cohen@skyshelf.com,Revenue Ops,US,csv,2026-09-01T10:00:00Z,unknown
+CloudNest,cloudnest.io,Jules Walsh,jules.walsh@cloudnest.io,Founder,US,csv,2026-09-01T10:00:00Z,legitimate_interest
+Acme Retail Ltd,acme-retail.com,Anna Nguyen,anna.nguyen@acme-retail.com,SDR Manager,US,csv,2026-09-01T10:00:00Z,consent
+Acme Retail ,www.acme-retail.com,Ben Patel,ben.patel@acme-retail.com,COO,US,csv,2026-09-01T10:00:00Z,unknown
+BrightSaaS Inc,brightsaas.com,Carla Schmidt,carla.schmidt@brightsaas.com,Head of Growth,US,csv,2026-09-01T10:00:00Z,legitimate_interest
+Bright SaaS,brightsaas.com,Diego Rossi,diego.rossi@brightsaas.com,VP Sales,US,csv,2026-09-01T10:00:00Z,consent
+FleetLogix GmbH,fleetlogix.com,Elena Kim,elena.kim@fleetlogix.com,Revenue Ops,DE,csv,2026-09-01T10:00:00Z,legitimate_interest
+PayNorth,paynorth.com,Farah Garcia,info@paynorth.com,Founder,NL,csv,2026-09-01T10:00:00Z,legitimate_interest
+Helix MFG,helixmfg.com,Gus Brown,gus.brown@helixmfg.com,SDR Manager,US,csv,2026-09-01T10:00:00Z,consent
+CarePulse,carepulse.com,Hana Silva,hana.silva@carepulse.com,COO,GB,csv,2026-09-01T10:00:00Z,unknown
+EvilCorp,evilcorp.com,Ivan Cohen,ivan.cohen@evilcorp.com,Head of Growth,US,csv,2026-09-01T10:00:00Z,legitimate_interest
+BlockedCorp,blockedcorp.example,Jules Walsh,jules.walsh@blockedcorp.example,VP Sales,XX,csv,2026-09-01T10:00:00Z,consent
+Nordic Packs AB,NORDICPACKS.COM,Anna Nguyen,anna.nguyen@nordicpacks.com,Revenue Ops,SE,csv,2026-09-01T10:00:00Z,unknown
+DataBridge,databridge.com,Ben Patel,ben.patel@databridge.com,Founder,US,csv,2026-09-01T10:00:00Z,legitimate_interest
+Orbit Tools,orbit-tools.com,Carla Schmidt,carla.schmidt@orbit-tools.com,SDR Manager,CA,csv,2026-09-01T10:00:00Z,consent
+Silk & Stone,silkstone.com,Diego Rossi,diego.rossi@silkstone.com,COO,FR,csv,2026-09-01T10:00:00Z,unknown
+QuickHaul,quickhaul.com,Elena Kim,elena.kim@quickhaul.com,Head of Growth,GB,csv,2026-09-01T10:00:00Z,legitimate_interest
+NovaPay,novapay.io,Farah Garcia,farah.garcia@novapay.io,VP Sales,US,csv,2026-09-01T10:00:00Z,consent
+GreenMill,greenmill.com,Gus Brown,info@greenmill.com,Revenue Ops,DE,csv,2026-09-01T10:00:00Z,legitimate_interest
+PulseCare,pulsecare.com,Hana Silva,hana.silva@pulsecare.com,Founder,US,csv,2026-09-01T10:00:00Z,legitimate_interest
+SkyShelf,skyshelf.com,Ivan Cohen,ivan.cohen@skyshelf.com,SDR Manager,US,csv,2026-09-01T10:00:00Z,consent
+CloudNest,cloudnest.io,Jules Walsh,jules.walsh@cloudnest.io,COO,US,csv,2026-09-01T10:00:00Z,unknown
+Acme Retail Ltd,acme-retail.com,Anna Nguyen,anna.nguyen@acme-retail.com,Head of Growth,US,csv,2026-09-01T10:00:00Z,legitimate_interest
+Acme Retail,www.acme-retail.com,Ben Patel,ben.patel@acme-retail.com,VP Sales,US,csv,2026-09-01T10:00:00Z,consent
+BrightSaaS Inc,brightsaas.com,Carla Schmidt,carla.schmidt@brightsaas.com,Revenue Ops,US,csv,2026-09-01T10:00:00Z,unknown
+Bright SaaS,brightsaas.com,Diego Rossi,diego.rossi@brightsaas.com,Founder,US,csv,2026-09-01T10:00:00Z,legitimate_interest
+FleetLogix GmbH ,fleetlogix.com,Elena Kim,elena.kim@fleetlogix.com,SDR Manager,DE,csv,2026-09-01T10:00:00Z,legitimate_interest
+PayNorth,paynorth.com,Farah Garcia,farah.garcia@paynorth.com,COO,NL,csv,2026-09-01T10:00:00Z,unknown
+Helix MFG,helixmfg.com,Gus Brown,gus.brown@helixmfg.com,Head of Growth,US,csv,2026-09-01T10:00:00Z,legitimate_interest
+CarePulse,CAREPULSE.COM,Hana Silva,info@carepulse.com,VP Sales,GB,csv,2026-09-01T10:00:00Z,consent
+EvilCorp,evilcorp.com,Ivan Cohen,ivan.cohen@evilcorp.com,Revenue Ops,US,csv,2026-09-01T10:00:00Z,unknown
+BlockedCorp,blockedcorp.example,Jules Walsh,jules.walsh@blockedcorp.example,Founder,XX,csv,2026-09-01T10:00:00Z,legitimate_interest
+Nordic Packs AB,nordicpacks.com,Anna Nguyen,anna.nguyen@nordicpacks.com,SDR Manager,SE,csv,2026-09-01T10:00:00Z,consent
+DataBridge,databridge.com,Ben Patel,ben.patel@databridge.com,COO,US,csv,2026-09-01T10:00:00Z,unknown
+Orbit Tools,orbit-tools.com,Carla Schmidt,carla.schmidt@orbit-tools.com,Head of Growth,CA,csv,2026-09-01T10:00:00Z,legitimate_interest
+Silk & Stone,silkstone.com,Diego Rossi,diego.rossi@silkstone.com,VP Sales,FR,csv,2026-09-01T10:00:00Z,consent
+QuickHaul,quickhaul.com,Elena Kim,elena.kim@quickhaul.com,Revenue Ops,GB,csv,2026-09-01T10:00:00Z,unknown
+NovaPay,novapay.io,Farah Garcia,farah.garcia@novapay.io,Founder,US,csv,2026-09-01T10:00:00Z,legitimate_interest
+GreenMill,greenmill.com,Gus Brown,gus.brown@greenmill.com,SDR Manager,DE,csv,2026-09-01T10:00:00Z,legitimate_interest
+PulseCare,pulsecare.com,Hana Silva,hana.silva@pulsecare.com,COO,US,csv,2026-09-01T10:00:00Z,unknown
+SkyShelf,skyshelf.com,Ivan Cohen,info@skyshelf.com,Head of Growth,US,csv,2026-09-01T10:00:00Z,legitimate_interest
+CloudNest,cloudnest.io,Jules Walsh,jules.walsh@cloudnest.io,VP Sales,US,csv,2026-09-01T10:00:00Z,consent

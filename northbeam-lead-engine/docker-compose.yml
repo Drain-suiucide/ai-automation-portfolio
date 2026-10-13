@@ -1,0 +1,129 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: lead
+      POSTGRES_PASSWORD: lead
+      POSTGRES_DB: lead_engine
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U lead -d lead_engine"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6380:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  mailhog:
+    image: mailhog/mailhog:v1.0.1
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+
+  fakeweb:
+    image: nginx:1.27-alpine
+    ports:
+      - "8088:80"
+    volumes:
+      - ./data/fakeweb:/usr/share/nginx/html:ro
+      - ./data/fakeweb/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+
+  n8n:
+    image: n8nio/n8n:1.68.0
+    ports:
+      - "5678:5678"
+    environment:
+      DB_TYPE: postgresdb
+      DB_POSTGRESDB_HOST: postgres
+      DB_POSTGRESDB_PORT: 5432
+      DB_POSTGRESDB_DATABASE: lead_engine
+      DB_POSTGRESDB_USER: lead
+      DB_POSTGRESDB_PASSWORD: lead
+      EXECUTIONS_MODE: queue
+      QUEUE_BULL_REDIS_HOST: redis
+      QUEUE_BULL_REDIS_PORT: 6379
+      N8N_ENCRYPTION_KEY: demo-only-not-for-production
+      GENERIC_TIMEZONE: UTC
+      WEBHOOK_URL: http://localhost:5678/
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - n8n_data:/home/node/.n8n
+
+  n8n-worker-1:
+    image: n8nio/n8n:1.68.0
+    command: worker
+    environment:
+      DB_TYPE: postgresdb
+      DB_POSTGRESDB_HOST: postgres
+      DB_POSTGRESDB_PORT: 5432
+      DB_POSTGRESDB_DATABASE: lead_engine
+      DB_POSTGRESDB_USER: lead
+      DB_POSTGRESDB_PASSWORD: lead
+      EXECUTIONS_MODE: queue
+      QUEUE_BULL_REDIS_HOST: redis
+      QUEUE_BULL_REDIS_PORT: 6379
+      N8N_ENCRYPTION_KEY: demo-only-not-for-production
+    depends_on:
+      - n8n
+      - redis
+
+  n8n-worker-2:
+    image: n8nio/n8n:1.68.0
+    command: worker
+    environment:
+      DB_TYPE: postgresdb
+      DB_POSTGRESDB_HOST: postgres
+      DB_POSTGRESDB_PORT: 5432
+      DB_POSTGRESDB_DATABASE: lead_engine
+      DB_POSTGRESDB_USER: lead
+      DB_POSTGRESDB_PASSWORD: lead
+      EXECUTIONS_MODE: queue
+      QUEUE_BULL_REDIS_HOST: redis
+      QUEUE_BULL_REDIS_PORT: 6379
+      N8N_ENCRYPTION_KEY: demo-only-not-for-production
+    depends_on:
+      - n8n
+      - redis
+
+  service:
+    build: .
+    ports:
+      - "8040:8040"
+    environment:
+      APP_PORT: "8040"
+      LLM_PROVIDER: fake
+      ENRICHMENT_PROVIDER: fakeweb
+      FAKEWEB_BASE_URL: http://fakeweb
+      MAIL_HOST: mailhog
+      MAIL_PORT: "1025"
+      MAIL_FROM: sdr@northbeam.example
+      APPROVAL_CHANNEL: dashboard
+      UNSUBSCRIBE_BASE_URL: http://127.0.0.1:8040
+      STORE_PATH: /data/store.json
+    volumes:
+      - service_data:/data
+      - ./data:/app/data:ro
+      - ./app/config:/app/app/config:ro
+    depends_on:
+      - mailhog
+      - fakeweb
+
+volumes:
+  pgdata:
+  n8n_data:
+  service_data:

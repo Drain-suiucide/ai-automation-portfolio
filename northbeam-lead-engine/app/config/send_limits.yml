@@ -1,0 +1,17 @@
+daily_cap: 50
+domain_cap: 3
+jitter_seconds_min: 1
+jitter_seconds_max: 3
+quiet_hours:
+  start: 21
+  end: 8
+role_addresses:
+  - info@
+  - sales@
+  - support@
+  - hello@
+  - contact@
+  - admin@
+  - office@
+recently_contacted_days: 30
+max_words: 120

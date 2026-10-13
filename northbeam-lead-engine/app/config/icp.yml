@@ -1,0 +1,59 @@
+# Deterministic ICP scoring weights. LLM never mutates this file or the score.
+industries:
+  retail: 30
+  saas: 28
+  logistics: 22
+  fintech: 25
+  manufacturing: 18
+  healthcare: 15
+  other: 5
+
+size_bands:
+  - name: "1-20"
+    min: 1
+    max: 20
+    points: 10
+  - name: "21-50"
+    min: 21
+    max: 50
+    points: 18
+  - name: "50-200"
+    min: 50
+    max: 200
+    points: 25
+  - name: "200-1000"
+    min: 200
+    max: 1000
+    points: 20
+  - name: "1000+"
+    min: 1000
+    max: 1000000
+    points: 8
+
+geography:
+  US: 15
+  GB: 12
+  CA: 12
+  DE: 8
+  FR: 8
+  NL: 10
+  default: 4
+
+tech_bonus:
+  Shopify Plus: 12
+  Salesforce: 10
+  HubSpot: 8
+  Snowflake: 8
+  Kubernetes: 6
+
+stop_list:
+  domains:
+    - competitors.example
+    - blockedcorp.example
+  companies:
+    - "Northbeam Internal"
+
+tier_thresholds:
+  A: 70
+  B: 45
+  C: 0

@@ -1,0 +1,9 @@
+﻿User-agent: *
+Allow: /
+
+User-agent: NorthbeamLeadEngineBot
+Allow: /
+
+# Disallow entire path for locked company
+User-agent: NorthbeamLeadEngineBot
+Disallow: /lockedco/

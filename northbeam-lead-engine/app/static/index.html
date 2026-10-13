@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Northbeam Lead Engine</title>
+  <style>
+    :root { --bg:#0f1419; --card:#1a2332; --accent:#5b9fd4; --ok:#3dba7a; --warn:#e6a23c; --bad:#e05c5c; --text:#e7eef7; --muted:#8aa0b8; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, sans-serif; background:var(--bg); color:var(--text); }
+    header { padding:1.25rem 1.5rem; border-bottom:1px solid #243044; display:flex; gap:1rem; align-items:center; justify-content:space-between; flex-wrap:wrap; }
+    h1 { margin:0; font-size:1.25rem; }
+    .sub { color:var(--muted); font-size:.9rem; }
+    main { padding:1.25rem 1.5rem; display:grid; gap:1rem; grid-template-columns: 1fr 1fr; }
+    @media (max-width: 960px) { main { grid-template-columns: 1fr; } }
+    .card { background:var(--card); border:1px solid #243044; border-radius:12px; padding:1rem; }
+    .card h2 { margin:0 0 .75rem; font-size:1rem; }
+    .row { display:flex; gap:.5rem; flex-wrap:wrap; }
+    button { background:var(--accent); color:#041018; border:0; border-radius:8px; padding:.5rem .85rem; font-weight:600; cursor:pointer; }
+    button.secondary { background:#2a3a50; color:var(--text); }
+    button.danger { background:var(--bad); color:#fff; }
+    .pill { display:inline-block; padding:.15rem .5rem; border-radius:999px; background:#243044; font-size:.75rem; margin:.15rem; }
+    .pill.A { background:#1f4d36; }
+    .pill.B { background:#4d3b1f; }
+    .pill.C { background:#4d1f1f; }
+    table { width:100%; border-collapse:collapse; font-size:.85rem; }
+    th, td { text-align:left; padding:.4rem .35rem; border-bottom:1px solid #243044; vertical-align:top; }
+    pre { white-space:pre-wrap; background:#0c1118; padding:.75rem; border-radius:8px; font-size:.8rem; }
+    .diff { display:grid; grid-template-columns:1fr 1fr; gap:.5rem; }
+    .fact { border-left:3px solid var(--accent); padding-left:.5rem; margin:.4rem 0; font-size:.85rem; }
+    .muted { color:var(--muted); }
+    #toast { position:fixed; bottom:1rem; right:1rem; background:#243044; padding:.75rem 1rem; border-radius:8px; display:none; }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Northbeam Lead Engine</h1>
+      <div class="sub">Enrich → score → grounded draft → human approve → send-time guards → MailHog</div>
+    </div>
+    <div class="row">
+      <button onclick="seed()">Seed demo</button>
+      <button class="secondary" onclick="runAll()">Run pipeline</button>
+      <button class="secondary" onclick="sendBatch()">Send batch</button>
+      <button class="secondary" onclick="refresh()">Refresh</button>
+    </div>
+  </header>
+  <main>
+    <section class="card">
+      <h2>Funnel</h2>
+      <div id="funnel" class="row"></div>
+      <p class="muted" id="meta"></p>
+    </section>
+    <section class="card">
+      <h2>Block reasons</h2>
+      <div id="blocks"></div>
+    </section>
+    <section class="card" style="grid-column:1/-1">
+      <h2>Approval queue</h2>
+      <div id="queue"></div>
+    </section>
+    <section class="card" style="grid-column:1/-1">
+      <h2>Lead detail</h2>
+      <div id="detail" class="muted">Select a lead from the queue.</div>
+    </section>
+  </main>
+  <div id="toast"></div>
+  <script>
+    async function api(path, opts={}) {
+      const res = await fetch(path, opts);
+      if (!res.ok) throw new Error(await res.text());
+      return res.json();
+    }
+    function toast(msg) {
+      const el = document.getElementById('toast');
+      el.textContent = msg; el.style.display = 'block';
+      setTimeout(() => el.style.display = 'none', 2500);
+    }
+    async function seed() { toast('Seeding…'); await api('/v1/demo/seed', {method:'POST'}); await refresh(); toast('Seeded'); }
+    async function runAll() { toast('Running…'); await api('/v1/pipeline/run-all', {method:'POST'}); await refresh(); toast('Done'); }
+    async function sendBatch() { const r = await api('/v1/send/batch', {method:'POST'}); toast('Send: ' + JSON.stringify(r.results.length) + ' results'); await refresh(); }
+    async function decide(leadId, action) {
+      await api('/v1/approval/decision', {
+        method:'POST', headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({lead_id: leadId, action})
+      });
+      await refresh();
+    }
+    async function showLead(id) {
+      const lead = await api('/v1/leads/' + id);
+      const d = lead.draft || {};
+      const facts = (lead.facts||[]).map(f =>
+        `<div class="fact"><strong>${f.type}</strong>: ${f.value}<br/><span class="muted">${f.source_url}</span><br/><em>${f.snippet}</em></div>`
+      ).join('') || '<span class="muted">No facts</span>';
+      const diff = `
+        <div class="diff">
+          <div><div class="muted">Original</div><pre>${escapeHtml(d.original_body || d.body || '')}</pre></div>
+          <div><div class="muted">Current / edited</div><pre>${escapeHtml(d.edited_body || d.body || '')}</pre></div>
+        </div>`;
+      document.getElementById('detail').innerHTML = `
+        <div><strong>${lead.company}</strong> · ${lead.email} · <span class="pill ${lead.tier||''}">${lead.tier||'-'} ${lead.icp_score}</span> · ${lead.state}</div>
+        <p>${escapeHtml((d.fit_rationale)||'')}</p>
+        <h3>Facts + sources</h3>${facts}
+        <h3>Draft</h3>
+        <p><strong>${escapeHtml(d.subject||'')}</strong> · grounding=${d.grounding||'-'} · hash=${d.content_hash||'-'}</p>
+        ${diff}
+        <div class="row" style="margin-top:.75rem">
+          <button onclick="decide('${lead.id}','approve')">Approve</button>
+          <button class="secondary" onclick="editLead('${lead.id}')">Edit</button>
+          <button class="danger" onclick="decide('${lead.id}','reject')">Reject</button>
+          <button class="danger" onclick="decide('${lead.id}','suppress')">Suppress</button>
+        </div>`;
+    }
+    async function editLead(id) {
+      const lead = await api('/v1/leads/' + id);
+      const body = prompt('Edited body', lead.draft?.body || '');
+      if (body == null) return;
+      await api('/v1/approval/decision', {
+        method:'POST', headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({lead_id:id, action:'edit', edited_body:body})
+      });
+      await refresh();
+      await showLead(id);
+    }
+    function escapeHtml(s){ return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+    async function refresh() {
+      const report = await api('/v1/reports/weekly');
+      const funnel = report.funnel || {};
+      document.getElementById('funnel').innerHTML = Object.entries(funnel).map(([k,v]) => `<span class="pill">${k}: ${v}</span>`).join('') || '<span class="muted">Empty</span>';
+      document.getElementById('meta').textContent = `edit_rate=${(report.edit_rate||0).toFixed(2)} · sends_today=${report.sends_today} · suppressions=${report.suppressions}`;
+      const blocks = report.blocks || {};
+      document.getElementById('blocks').innerHTML = Object.keys(blocks).length
+        ? Object.entries(blocks).map(([k,v]) => `<span class="pill">${k}: ${v}</span>`).join('')
+        : '<span class="muted">No blocks yet</span>';
+      const queue = await api('/v1/approval/queue');
+      document.getElementById('queue').innerHTML = queue.length ? `
+        <table><thead><tr><th>Company</th><th>Contact</th><th>Score</th><th>Grounding</th><th></th></tr></thead>
+        <tbody>${queue.map(l => `<tr>
+          <td>${escapeHtml(l.company)}</td>
+          <td>${escapeHtml(l.contact_name)} &lt;${escapeHtml(l.email)}&gt;</td>
+          <td><span class="pill ${l.tier}">${l.tier} ${l.icp_score}</span></td>
+          <td>${l.draft?.grounding||'-'}</td>
+          <td><button class="secondary" onclick="showLead('${l.id}')">Open</button></td>
+        </tr>`).join('')}</tbody></table>` : '<span class="muted">No drafts waiting</span>';
+    }
+    refresh().catch(console.error);
+  </script>
+</body>
+</html>

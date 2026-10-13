@@ -1,0 +1,7 @@
+# Illustrative only — not legal advice. Consult counsel before production use.
+country_policy:
+  default: allow_with_opt_out
+  DE: consent_required
+  AT: consent_required
+  XX: block
+  RU: block
