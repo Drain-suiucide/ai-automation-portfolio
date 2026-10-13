@@ -22,8 +22,9 @@ jobs:
       - uses: astral-sh/setup-uv@v3
         with:
           enable-cache: true
+          cache-dependency-glob: "northbeam-lead-engine/uv.lock"
       - name: Install
-        run: uv sync --extra dev
+        run: uv sync --frozen --extra dev
       - name: Ruff
         run: uv run ruff check .
       - name: Mypy

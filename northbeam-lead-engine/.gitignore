@@ -11,4 +11,3 @@ reports/eval_store.json
 dist/
 build/
 .uv/
-uv.lock
