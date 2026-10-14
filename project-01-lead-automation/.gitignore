@@ -1,0 +1,23 @@
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.secret
+*token*.txt
+n8n-encryption-key*
+credentials.json
+
+# Local runtime data
+.n8n/
+node_modules/
+logs/
+*.log
+execution-data/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
