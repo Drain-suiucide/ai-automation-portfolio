@@ -1,3 +1,8 @@
+#AI-automation-portfolio
+
+My repo in which you can see my projects and developing process
+
+
 # Lead Intake Automation
 
 An n8n workflow that automatically receives incoming leads, validates their email addresses, and separates valid leads from invalid submissions.
