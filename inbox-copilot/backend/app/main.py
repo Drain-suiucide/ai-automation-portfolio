@@ -6,7 +6,7 @@ from app.api.health import router as health_router
 from app.api.prioritize import router as prioritize_router
 from app.core.config import settings
 import logging
-
+from app.api.emails import router as emails_router
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s %(levelname)s [%(name)s] %(message)s",
@@ -17,6 +17,7 @@ app = FastAPI(
     version="0.1.0",
     description="Human-in-the-loop AI assistant for email triage.",
 )
+app.include_router(emails_router)
 app.include_router(process_router)
 app.include_router(health_router, tags=["health"])
 app.include_router(classify_router)
