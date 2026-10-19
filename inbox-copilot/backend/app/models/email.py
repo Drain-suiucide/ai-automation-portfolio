@@ -29,7 +29,7 @@ class Email(Base, TimestampMixin):
         UUID(as_uuid=True), ForeignKey("threads.id", ondelete="CASCADE"), index=True
     )
     mailbox_id: Mapped[uuid.UUID] = mapped_column(
-        UUID(as_uuid=True), ForeignKey("mailboxes.id", ondelete="CASCADE"), index=True
+        UUID(as_uuid=True), ForeignKey("mailboxes.id", ondelete="CASCADE"), index=True, nullable=True
     )
     external_message_id: Mapped[str] = mapped_column(
         String(998), unique=True, index=True
@@ -55,4 +55,13 @@ class Email(Base, TimestampMixin):
     thread: Mapped["Thread"] = relationship(back_populates="emails")  # noqa: F821
     attachments: Mapped[list["Attachment"]] = relationship(  # noqa: F821
         back_populates="email", cascade="all, delete-orphan"
+    )
+    classification: Mapped["Classification | None"] = relationship(  # noqa: F821
+        back_populates="email", uselist=False, cascade="all, delete-orphan"
+    )
+    extraction: Mapped["Extraction | None"] = relationship(  # noqa: F821
+        back_populates="email", uselist=False, cascade="all, delete-orphan"
+    )
+    priority: Mapped["Priority | None"] = relationship(  # noqa: F821
+        back_populates="email", uselist=False, cascade="all, delete-orphan"
     )
