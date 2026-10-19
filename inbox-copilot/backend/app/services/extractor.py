@@ -16,6 +16,6 @@ def extract_entities(
         system_prompt=SYSTEM_PROMPT,
         user_prompt=user_prompt,
         temperature=0.0,
-        max_tokens=500,
+        max_tokens=1500,
     )
     return parsed, LLMMeta(**meta_dict)

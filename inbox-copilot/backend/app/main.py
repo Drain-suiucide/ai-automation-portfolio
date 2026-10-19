@@ -5,6 +5,12 @@ from app.api.extract import router as extract_router
 from app.api.health import router as health_router
 from app.api.prioritize import router as prioritize_router
 from app.core.config import settings
+import logging
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s %(levelname)s [%(name)s] %(message)s",
+)
 
 app = FastAPI(
     title="Inbox Copilot",
