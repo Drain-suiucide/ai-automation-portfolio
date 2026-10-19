@@ -15,7 +15,7 @@ class Thread(Base, TimestampMixin):
         UUID(as_uuid=True), primary_key=True, default=uuid.uuid4
     )
     mailbox_id: Mapped[uuid.UUID] = mapped_column(
-        UUID(as_uuid=True), ForeignKey("mailboxes.id", ondelete="CASCADE"), index=True
+        UUID(as_uuid=True), ForeignKey("mailboxes.id", ondelete="CASCADE"), index=True, nullable=True
     )
     external_thread_id: Mapped[str] = mapped_column(String(512), index=True)
     subject: Mapped[str | None] = mapped_column(String(998), nullable=True)
