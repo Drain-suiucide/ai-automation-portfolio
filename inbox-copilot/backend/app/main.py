@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-
+from app.api.process import router as process_router
 from app.api.classify import router as classify_router
 from app.api.extract import router as extract_router
 from app.api.health import router as health_router
@@ -17,7 +17,7 @@ app = FastAPI(
     version="0.1.0",
     description="Human-in-the-loop AI assistant for email triage.",
 )
-
+app.include_router(process_router)
 app.include_router(health_router, tags=["health"])
 app.include_router(classify_router)
 app.include_router(extract_router)
