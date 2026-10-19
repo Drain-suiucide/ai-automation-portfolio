@@ -26,6 +26,6 @@ def prioritize_email(
         system_prompt=SYSTEM_PROMPT,
         user_prompt=user_prompt,
         temperature=0.0,
-        max_tokens=400,
+        max_tokens=800,
     )
     return parsed, LLMMeta(**meta_dict)
