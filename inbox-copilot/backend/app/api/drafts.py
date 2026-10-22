@@ -123,3 +123,37 @@ def get_draft(draft_id: str, db: Session = Depends(get_db)) -> DraftResponse:
         cited_kb=draft.cited_kb or [],
         meta=meta,
     )
+@router.get("/emails/{email_id}/drafts", response_model=list[DraftResponse])
+def list_drafts_for_email(
+    email_id: str, db: Session = Depends(get_db)
+) -> list[DraftResponse]:
+    drafts = (
+        db.query(Draft)
+        .filter(Draft.email_id == email_id)
+        .order_by(Draft.created_at.desc())
+        .all()
+    )
+    result = []
+    for draft in drafts:
+        meta = LLMMeta(
+            model=draft.model,
+            provider=draft.provider,
+            latency_ms=draft.latency_ms,
+            fallback_used=draft.fallback_used,
+        )
+        result.append(
+            DraftResponse(
+                draft_id=str(draft.id),
+                email_id=str(draft.email_id),
+                status=_status_value(draft.status),
+                subject=draft.subject,
+                body_text=draft.body_text,
+                tone=draft.tone,
+                language=draft.language,
+                confidence=draft.confidence,
+                warnings=draft.warnings or [],
+                cited_kb=draft.cited_kb or [],
+                meta=meta,
+            )
+        )
+    return result
