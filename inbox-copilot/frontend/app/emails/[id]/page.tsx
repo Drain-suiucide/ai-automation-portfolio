@@ -1,3 +1,5 @@
+import { EmailDetailClient } from "./EmailDetailClient";
+
 export const instant = false;
 
 export default async function EmailDetailPage({
@@ -6,5 +8,5 @@ export default async function EmailDetailPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  return <div>Email detail: {id} (coming in 8.2)</div>;
+  return <EmailDetailClient id={id} />;
 }
