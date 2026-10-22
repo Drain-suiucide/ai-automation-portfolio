@@ -8,6 +8,8 @@ from app.core.config import settings
 import logging
 from app.api.emails import router as emails_router
 from app.api.drafts import router as drafts_router
+from app.api.audit import router as audit_router
+from app.api.draft_actions import router as draft_actions_router
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s %(levelname)s [%(name)s] %(message)s",
@@ -19,6 +21,8 @@ app = FastAPI(
     description="Human-in-the-loop AI assistant for email triage.",
 )
 app.include_router(emails_router)
+app.include_router(draft_actions_router)
+app.include_router(audit_router)
 app.include_router(process_router)
 app.include_router(drafts_router)
 app.include_router(health_router, tags=["health"])

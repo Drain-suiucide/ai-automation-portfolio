@@ -36,3 +36,17 @@ class DraftRequest(BaseModel):
         None,
         description="Optional extra instructions from human",
     )
+    
+class RejectRequest(BaseModel):
+    reason: str
+
+
+class RegenerateRequest(BaseModel):
+    tone: str | None = None
+    instructions: str | None = None
+
+
+class ActionResponse(BaseModel):
+    draft_id: str
+    status: str
+    message: str
