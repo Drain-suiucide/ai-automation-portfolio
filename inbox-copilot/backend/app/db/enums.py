@@ -17,3 +17,9 @@ class MailboxProvider(str, enum.Enum):
 class EmailDirection(str, enum.Enum):
     inbound = "inbound"
     outbound = "outbound"
+class DraftStatus(str, enum.Enum):
+    draft = "draft"
+    approved = "approved"
+    rejected = "rejected"
+    sent = "sent"
+    failed = "failed"
