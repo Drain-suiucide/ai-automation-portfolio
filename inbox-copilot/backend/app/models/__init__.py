@@ -7,8 +7,8 @@ from app.models.mailbox import Mailbox
 from app.models.priority import Priority
 from app.models.thread import Thread
 from app.models.user import User
-
+from app.models.audit_log import AuditLog
 __all__ = [
     "User", "Mailbox", "Thread", "Email", "Attachment",
-    "Classification", "Extraction", "Priority", "Draft",
+    "Classification", "Extraction", "Priority", "Draft", "AuditLog"
 ]
