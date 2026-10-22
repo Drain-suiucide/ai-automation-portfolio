@@ -25,6 +25,8 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
 }
 
 export const api = {
+  listDrafts: (emailId: string) =>
+    request<DraftResponse[]>(`/emails/${emailId}/drafts`),
   listEmails: (params?: { category?: string; priority?: string; limit?: number }) => {
     const qs = new URLSearchParams();
     if (params?.category) qs.set("category", params.category);
