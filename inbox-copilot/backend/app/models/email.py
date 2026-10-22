@@ -65,3 +65,6 @@ class Email(Base, TimestampMixin):
     priority: Mapped["Priority | None"] = relationship(  # noqa: F821
         back_populates="email", uselist=False, cascade="all, delete-orphan"
     )
+    drafts: Mapped[list["Draft"]] = relationship(  # noqa: F821
+        back_populates="email", cascade="all, delete-orphan"
+    )
