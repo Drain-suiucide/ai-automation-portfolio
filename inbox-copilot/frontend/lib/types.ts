@@ -105,3 +105,15 @@ export type AuditListResponse = {
   limit: number;
   offset: number;
 };
+export type MetricsResponse = {
+  total_emails: number;
+  priority_stats: Record<string, number>;
+  category_stats: Record<string, number>;
+  avg_latency_ms: {
+    classification: number;
+    extraction: number;
+    priority: number;
+  };
+  provider_stats: Record<string, number>;
+  fallback_rate: number;
+};
