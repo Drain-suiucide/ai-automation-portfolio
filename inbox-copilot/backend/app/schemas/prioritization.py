@@ -4,7 +4,6 @@ from pydantic import BaseModel, Field
 
 from app.schemas.classification import LLMMeta
 
-
 Priority = Literal["P0", "P1", "P2", "P3"]
 
 

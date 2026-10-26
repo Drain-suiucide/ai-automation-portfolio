@@ -2,7 +2,7 @@ from datetime import datetime
 
 from pydantic import BaseModel
 
-from app.schemas.classification import ClassificationResult, LLMMeta
+from app.schemas.classification import ClassificationResult
 from app.schemas.extraction import ExtractedEntities
 from app.schemas.prioritization import PriorityResult
 

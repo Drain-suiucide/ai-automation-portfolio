@@ -1,6 +1,6 @@
 import logging
 import uuid
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
@@ -63,7 +63,7 @@ def process_email(db: Session, payload: ProcessRequest) -> ProcessResponse:
             mailbox_id=None,
             external_thread_id=f"mvp-thread-{uuid.uuid4()}",
             subject=payload.subject,
-            last_message_at=datetime.now(timezone.utc),
+            last_message_at=datetime.now(UTC),
         )
         db.add(thread)
         db.flush()
@@ -82,7 +82,7 @@ def process_email(db: Session, payload: ProcessRequest) -> ProcessResponse:
             body_text=payload.body,
             body_html=None,
             raw_headers={},
-            received_at=datetime.now(timezone.utc),
+            received_at=datetime.now(UTC),
             is_read=False,
         )
         db.add(email)

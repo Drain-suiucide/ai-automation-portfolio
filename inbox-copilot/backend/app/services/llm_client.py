@@ -1,6 +1,6 @@
 import logging
 import time
-from typing import Type, TypeVar
+from typing import TypeVar
 
 import httpx
 import litellm
@@ -91,9 +91,9 @@ def _call_ollama(model: str, messages: list[dict], temperature: float) -> dict:
     }
 
 
-def structured_completion(
+def structured_completion[T: BaseModel](
     *,
-    schema: Type[T],
+    schema: type[T],
     system_prompt: str,
     user_prompt: str,
     temperature: float = 0.0,
