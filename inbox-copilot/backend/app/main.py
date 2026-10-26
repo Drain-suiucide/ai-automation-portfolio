@@ -11,6 +11,7 @@ from app.api.drafts import router as drafts_router
 from app.api.audit import router as audit_router
 from app.api.draft_actions import router as draft_actions_router
 from fastapi.middleware.cors import CORSMiddleware
+from app.api.metrics import router as metrics_router
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s %(levelname)s [%(name)s] %(message)s",
@@ -31,6 +32,7 @@ app.add_middleware(
 app.include_router(emails_router)
 app.include_router(draft_actions_router)
 app.include_router(audit_router)
+app.include_router(metrics_router)
 app.include_router(process_router)
 app.include_router(drafts_router)
 app.include_router(health_router, tags=["health"])
