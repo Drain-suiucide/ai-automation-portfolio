@@ -1,7 +1,7 @@
 ```markdown
 # 📥 Inbox Copilot
 
-**Human-in-the-loop AI assistant for email triage, extraction, and reply drafting.**
+Human-in-the-loop AI assistant for email triage, extraction, and reply drafting.
 
 [![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=flat&logo=fastapi)](https://fastapi.tiangolo.com/)
 [![Next.js](https://img.shields.io/badge/Next.js-black?style=flat&logo=next.js)](https://nextjs.org/)
@@ -12,13 +12,13 @@
 Support and sales teams spend hours daily on manual email triage. Misclassified emails lead to SLA breaches, lost leads, and unhappy customers.
 
 ## 💡 The Solution
-**Inbox Copilot** is a production-grade AI assistant that automatically:
-1. **Classifies** incoming emails (billing, support, sales, spam).
-2. **Extracts** entities (amounts, deadlines, invoice IDs, sentiment).
-3. **Prioritizes** them (P0-P3) based on business rules.
-4. **Drafts** context-aware replies.
+Inbox Copilot is a production-grade AI assistant that automatically:
+1. Classifies incoming emails (billing, support, sales, spam).
+2. Extracts entities (amounts, deadlines, invoice IDs, sentiment).
+3. Prioritizes them (P0-P3) based on business rules.
+4. Drafts context-aware replies.
 
-**Crucially, it is Human-in-the-loop:** no email is ever sent without explicit human approval. Dangerous categories (billing, legal) require mandatory review.
+Crucially, it is Human-in-the-loop: no email is ever sent without explicit human approval. Dangerous categories (billing, legal) require mandatory review.
 
 ## 🏗 Architecture
 
@@ -30,25 +30,25 @@ PostgreSQL (Emails, Drafts, Audit)
 text
 
 ## 🚀 Key Features
-- **End-to-end pipeline:** 1 API call (`POST /process`) → classify + extract + prioritize.
-- **LLM Fallback chain:** OpenRouter (free tier) → local Ollama (offline fallback).
-- **Human-in-the-loop workflow:** Draft → Approve/Reject → Send (stub).
-- **Full Audit Log:** every action is tracked with actor, timestamp, and payload.
-- **Metrics Dashboard:** real-time latency, category distribution, fallback rate.
+- End-to-end pipeline: 1 API call (`POST /process`) → classify + extract + prioritize.
+- LLM Fallback chain: OpenRouter (free tier) → local Ollama (offline fallback).
+- Human-in-the-loop workflow: Draft → Approve/Reject → Send (stub).
+- Full Audit Log: every action is tracked with actor, timestamp, and payload.
+- Metrics Dashboard: real-time latency, category distribution, fallback rate.
 
 ## 🛠 Tech Stack
-- **Backend:** Python 3.12, FastAPI, SQLAlchemy 2.0, Alembic, Pydantic v2.
-- **Database:** PostgreSQL 16, Redis (for future queuing).
-- **LLM:** LiteLLM (OpenRouter Nemotron 120B + Ollama Llama 3.2 3B).
-- **Frontend:** Next.js 15 (App Router), TypeScript, Tailwind CSS.
-- **Infrastructure:** Docker Compose, GitHub Actions.
+- Backend: Python 3.12, FastAPI, SQLAlchemy 2.0, Alembic, Pydantic v2.
+- Database: PostgreSQL 16, Redis (for future queuing).
+- LLM: LiteLLM (OpenRouter Nemotron 120B + Ollama Llama 3.2 3B).
+- Frontend: Next.js 15 (App Router), TypeScript, Tailwind CSS.
+- Infrastructure: Docker Compose, GitHub Actions.
 
 ## 📊 Metrics & Performance
-*(Measured on demo dataset of 5 realistic emails)*
-- **Classification Accuracy:** 98% (on golden set).
-- **Extraction Match:** 100% for amounts, invoices, deadlines.
-- **Avg Pipeline Latency:** ~15-20 sec (Ollama local) / ~6 sec (OpenRouter).
-- **Cost:** $0.00 (self-hosted + free tier).
+(Measured on demo dataset of 5 realistic emails)
+- Classification Accuracy: 98% (on golden set).
+- Extraction Match: 100% for amounts, invoices, deadlines.
+- Avg Pipeline Latency: ~15-20 sec (Ollama local) / ~6 sec (OpenRouter).
+- Cost: $0.00 (self-hosted + free tier).
 
 ## ⚙️ How to Run Locally
 
