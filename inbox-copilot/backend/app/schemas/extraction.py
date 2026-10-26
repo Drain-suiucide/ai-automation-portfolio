@@ -1,9 +1,8 @@
 from typing import Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
 
 from app.schemas.classification import LLMMeta
-
 
 Sentiment = Literal["positive", "neutral", "negative", "angry"]
 Urgency = Literal["low", "normal", "high", "critical"]

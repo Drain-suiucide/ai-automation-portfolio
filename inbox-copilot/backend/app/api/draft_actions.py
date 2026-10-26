@@ -7,14 +7,13 @@ from app.models.draft import Draft
 from app.models.email import Email
 from app.schemas.draft import (
     ActionResponse,
-    DraftRequest,
     DraftResponse,
     RegenerateRequest,
     RejectRequest,
 )
 from app.services.audit import log_action
-from app.services.drafter import generate_draft
 from app.services.draft_workflow import approve_draft, reject_draft, send_draft
+from app.services.drafter import generate_draft
 from app.services.llm_client import LLMError
 
 router = APIRouter(tags=["draft-actions"])
