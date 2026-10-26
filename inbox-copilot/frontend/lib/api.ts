@@ -25,6 +25,7 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
 }
 
 export const api = {
+  getMetrics: () => request<MetricsResponse>("/metrics"),
   listDrafts: (emailId: string) =>
     request<DraftResponse[]>(`/emails/${emailId}/drafts`),
   listEmails: (params?: { category?: string; priority?: string; limit?: number }) => {
