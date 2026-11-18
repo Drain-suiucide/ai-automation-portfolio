@@ -338,4 +338,5 @@ Stages are sequential unless dependencies explicitly allow parallelism (see `doc
 |-------|--------|
 | 1 Project Setup | Complete (Agent 00) |
 | 2 Product Requirements | Complete (Agent 01) |
-| 3–13 | Not started |
+| 3 Architecture | Complete (Agent 02; docs only) |
+| 4–13 | Not started |

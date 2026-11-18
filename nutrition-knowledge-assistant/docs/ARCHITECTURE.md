@@ -347,7 +347,38 @@ For each: MVP = Must/Should in MVP unless marked Later.
 - Structured logs + Langfuse spans; mock no-op if unset.
 - **FR/AC:** FR-030; AC-52.
 
-#### Feedback (helpful/not) — **Should / Later-OK in same API**
+#### Component contract matrix
+
+The following matrix makes the boundary explicit for every required architectural component. Components remain modules in the modular monolith; a row is not a separate service.
+
+| Component | Inputs → outputs | Dependencies | Failure mode / terminal behavior | FR / AC | Phase |
+|---|---|---|---|---|---|
+| API / Application Layer | HTTP DTO → sanitized HTTP response | All domain modules, observability | 4xx for validation; sanitized `error` for unexpected failures | FR-001, FR-020–024; AC-01, AC-09, AC-40–42, AC-51 | MVP |
+| Query Validation | raw request → `ValidatedQuery` | None | Invalid/oversized/empty payload → 422 | FR-001; AC-42 | MVP |
+| Safety Pre-check | validated query → pre `SafetyDecision` | Safety Policy, rules engine | Ambiguous → `refused_safety`; unavailable/crash → `error`; never bypass | FR-002, FR-008, FR-033–034; AC-20–30 | MVP |
+| Query Understanding | validated safe query → `QueryPlan` | None; deterministic parsing preferred | Parse failure → empty facets; continue with safe baseline | FR-015; AC-11 | MVP |
+| Retrieval | `QueryPlan` → ranked `RetrievalHit[]` | OpenAI embeddings, PostgreSQL/pgvector | Provider/DB failure → `error`; empty result is normal | FR-003, FR-019, FR-029; AC-08, AC-12 | MVP |
+| Evidence Filtering | hits + plan → `EvidenceBuildResponse` | Document metadata, configurable provisional gate | Filtered empty set → `insufficient_evidence` | FR-007, FR-026, FR-031; AC-08, AC-43 | MVP |
+| Conflict Detection | selected evidence → `ConflictReport` | Authority/topic/stance metadata | Heuristic miss → generation still separates authorities; false positive → disclosure | FR-014; AC-10 | MVP |
+| Context Assembly | evidence + conflict + safety flags → `GenerationContext` | Evidence contract | Empty context → `insufficient_evidence`; chunk text stays DATA | FR-004, FR-010, FR-013; AC-30 | MVP |
+| LLM Generation | generation context → structured draft claims | OpenAI chat adapter | Timeout/provider error → `error`; model abstention → `insufficient_evidence` | FR-004–005, FR-009–010, FR-023; AC-02, AC-07, AC-41 | MVP |
+| Citation Validation | draft + evidence + DB → validated claims/citations | Chunk/version repository | Invalid IDs: one retry, then `insufficient_evidence`; DB failure → `error` | FR-005–006, FR-009; AC-02, AC-05–06 | MVP |
+| Safety Post-check | draft + claims → post `SafetyDecision` | Safety rules, pre-decision context | Violation/ambiguity → discard draft, `refused_safety`; crash → `error` | FR-008, FR-033; AC-20–30 | MVP |
+| Response Assembly | validated draft + decisions → `QueryResponse` | Public DTO schemas | Invalid internal state is an application error, never a partial success | FR-011, FR-014–015, FR-020–021; AC-01–04, AC-09–11 | MVP |
+| Source Registry | operator source metadata → `Source` | PostgreSQL, licensing metadata | Unknown/forbidden license → reject ingest | FR-016–017; AC-44 | MVP |
+| Document Ingestion | approved input → `IngestionJob` / version | Source registry, extractors, DB, embeddings | Stage failure recorded; no half-active version | FR-017–019, FR-026, FR-031; AC-43–44 | MVP |
+| Document Versioning | normalized content → immutable `DocumentVersion` | Document/source records, hashes | Duplicate hash is idempotent; conflicting label is explicit error | FR-016, FR-026, FR-031; AC-43 | MVP |
+| Chunking | version text → ordered `Chunk[]` | Provisional D-010 config | Parse/chunk failure fails job; old version remains active | FR-018; AC-44 | MVP |
+| Embeddings | chunk text → model-tagged vectors | OpenAI embedding adapter | Provider failure fails ingestion/retrieval with `error` | FR-019, FR-023; AC-41, AC-44 | MVP |
+| Vector Storage | vectors + metadata → persistent searchable index | PostgreSQL/pgvector | DB unavailable → `error`; no silent empty success | FR-018–019, NFR-R2 | MVP |
+| Evaluation | dataset + run config → results/report | Query contract, persisted traces | Judge failure is `passed=null`, never fabricated pass | FR-030; AC-53 | MVP baseline |
+| Observability | lifecycle events → structured logs/traces/metrics | Langfuse optional adapter | Missing credentials → no-op/mock; never crash request | FR-030; AC-52 | MVP |
+
+The detailed module contracts in `docs/interfaces/` define the exact fields and examples for these inputs and outputs.
+
+---
+
+#### Feedback — **Should / Later-OK in same API**
 
 - Persist `FeedbackEvent` linked to `query_id`.
 - **FR/AC:** FR-027; AC-45.

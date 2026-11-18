@@ -2,7 +2,7 @@
 
 RAG-based informational assistant for **general nutrition questions**, grounded in a curated knowledge base of official recommendations and scientific publications.
 
-**Current status: Stage 2 (Product Requirements) complete. Not a working product yet.**
+**Current status: Stage 3 (Architecture) documentation complete. Not a working product yet.**
 
 This repository folder contains project governance and product/safety requirements. There is no runnable API, database, ingestion pipeline, or UI at this stage.
 
@@ -79,6 +79,11 @@ Application packages (`backend/`, `frontend/`, etc.) will be introduced by Archi
 | [`docs/DECISIONS.md`](docs/DECISIONS.md) | Approved technology decisions |
 | [`docs/PRD.md`](docs/PRD.md) | Product requirements, stories, FRs/NFRs, MVP MoSCoW |
 | [`docs/SAFETY_POLICY.md`](docs/SAFETY_POLICY.md) | Medical/AI safety categories and refusal rules |
+| [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) | System design, workflows, safety, data and deployment architecture |
+| [`docs/DATA_MODEL.md`](docs/DATA_MODEL.md) | Conceptual entities, relationships and retention |
+| [`docs/REQUIREMENTS_TRACEABILITY.md`](docs/REQUIREMENTS_TRACEABILITY.md) | FR/AC mapping to components, scenarios and verification |
+| [`docs/ARCHITECTURE_OPEN_QUESTIONS.md`](docs/ARCHITECTURE_OPEN_QUESTIONS.md) | Unresolved architecture and operational questions |
+| [`docs/interfaces/`](docs/interfaces/) | Shared module and API interface contracts |
 | [`docs/ACCEPTANCE_CRITERIA.md`](docs/ACCEPTANCE_CRITERIA.md) | Verifiable MVP acceptance checks |
 | [`docs/USER_SCENARIOS.md`](docs/USER_SCENARIOS.md) | End-to-end scenario specifications |
 | [`docs/RISK_REGISTER.md`](docs/RISK_REGISTER.md) | Product/tech/safety risks and threat model |
