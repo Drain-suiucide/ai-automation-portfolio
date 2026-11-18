@@ -2,9 +2,9 @@
 
 **Status:** Active  
 **Owner:** Agent 00 (bootstrap entries); later architecture decisions owned by Agent 02 via RFC  
-**Last updated:** 2026-11-18
+**Last updated:** 2026-11-18 (Agent 02 architecture decisions appended)
 
-Only **approved** decisions are listed. Do not treat drafts or agent assumptions as approved until recorded here.
+Only **approved** or explicitly **provisional** decisions are listed. Do not treat drafts or agent assumptions as approved until recorded here.
 
 ---
 
@@ -19,6 +19,18 @@ Only **approved** decisions are listed. Do not treat drafts or agent assumptions
 | D-005 | Test runner | Approved | 2026-11-18 |
 | D-006 | Observability | Approved | 2026-11-18 |
 | D-007 | Containerization | Approved | 2026-11-18 |
+| D-008 | Modular monolith package layout | Approved | 2026-11-18 |
+| D-009 | Custom transparent RAG pipeline | Approved | 2026-11-18 |
+| D-010 | Chunking strategy (MVP) | Provisional | 2026-11-18 |
+| D-011 | Embedding & chat model defaults | Provisional | 2026-11-18 |
+| D-012 | Dual safety enforcement (pre + post) | Approved | 2026-11-18 |
+| D-013 | Conflict as distinct status | Approved | 2026-11-18 |
+| D-014 | Operator auth via shared token | Approved | 2026-11-18 |
+| D-015 | Insufficient-evidence gating | Provisional | 2026-11-18 |
+| D-016 | Citation support eval-only in MVP | Approved | 2026-11-18 |
+| D-017 | API versioning `/api/v1` | Approved | 2026-11-18 |
+| D-018 | No hybrid search / reranker in MVP | Approved | 2026-11-18 |
+| D-019 | Sync DB access default for MVP | Provisional | 2026-11-18 |
 
 ---
 
